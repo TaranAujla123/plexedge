@@ -94,10 +94,17 @@
   .prose p b{font-weight:650;color:var(--ink)}
   .prose p b.g{color:var(--green);font-weight:700}
   .sig{margin-top:26px;padding-top:20px;border-top:1px solid var(--line)}
-  .sig-name{font-family:"Caveat",cursive;font-size:34px;line-height:1;color:var(--green-d);margin:0}
-  .sig-role{margin:9px 0 12px;font-size:12.5px;line-height:1.55;color:var(--mut);max-width:60ch}
+  .sig .sig-name{font-family:"Caveat",cursive;font-size:50px;line-height:.95;color:var(--green-d);margin:0}
+  .sig .sig-role{margin:9px 0 12px;font-size:12.5px;line-height:1.55;color:var(--mut);max-width:60ch}
   .sig-link{font-family:var(--sans);font-size:13px;font-weight:600;color:var(--green);border-bottom:1.5px solid var(--sage);padding-bottom:2px}
   .sig-link:hover{border-color:var(--green)}
+  .who-id{margin-bottom:18px}
+  .who-name{font-family:var(--display);font-size:30px;font-weight:700;letter-spacing:-.02em;line-height:1.04;color:var(--ink)}
+  .who-role{font-family:var(--sans);font-size:12.5px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--green);margin-top:7px}
+  .who-reg{font-size:13px;color:var(--ink);font-weight:600;margin-top:11px;line-height:1.45}
+  .who-cred{font-size:13px;color:var(--mut);margin-top:4px;line-height:1.45}
+  .who-li{display:inline-block;margin-top:12px;font-family:var(--sans);font-size:13px;font-weight:600;color:var(--green);border-bottom:1.5px solid var(--sage);padding-bottom:2px}
+  .who-li:hover{border-color:var(--green)}
   /* scrolling marquee */
   .marquee{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--sage2);overflow:hidden;padding:13px 0}
   .mq-track{display:flex;width:max-content;white-space:nowrap;animation:mq 40s linear infinite;font-weight:600;font-size:14px;color:var(--green-d)}
@@ -195,7 +202,7 @@
     <div class="htext">
       <span class="ey">Advisory · Acquisitions · Development · Sales</span>
       <h1>The homes hiding <span class="g">in the lot.</span></h1>
-      <p class="sub">Ordinary lots can now hold three to six homes &mdash; worth far more than the house on them. PlexEdge finds the ones the market has mispriced, proves what they can become with a licensed team, and takes them from concept to keys.</p>
+      <p class="sub">Across Ontario, ordinary lots can now hold three to six homes &mdash; worth far more than the house on them. PlexEdge finds the ones the market has mispriced, proves what they can become with a licensed team, and takes them from concept to keys.</p>
       <div class="cta">
         <a href="#contact" class="btn solid">Check a lot &rsaquo;</a>
         <a href="#how" class="btn ghost">See how it works</a>
@@ -215,7 +222,7 @@
       <input class="ba-range" type="range" min="0" max="100" value="50" aria-label="Drag to reveal before or after">
     </div>
     <p class="ba-cap" id="ba-cap">Same lot, same street &mdash; four homes where one stood, and the block still looks like itself.</p>
-    <p class="ba-note">Illustrative concepts, not past projects. A conversion reads differently on every street &mdash; often we keep the existing home and add units, rather than tear down.</p>
+    <p class="ba-note">Illustrative concepts, not past projects. A conversion reads differently in every Ontario neighbourhood &mdash; often we keep the existing home and add units, rather than tear down.</p>
     <div class="bcards">
       <div class="bcard">
         <span class="bi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.6 12 3.5l9 7.1"/><path d="M5.2 9.4V20.5h13.6V9.4"/><path d="M9.7 20.5v-5.4h4.6v5.4"/></svg></span>
@@ -243,7 +250,7 @@
 
 <div class="marquee" aria-hidden="true">
   <div class="mq-track">
-    <span>Fourplex &amp; sixplex</span><i>&bull;</i><span>Garden &amp; laneway suites</span><i>&bull;</i><span>Owner-first layouts</span><i>&bull;</i><span>Licensed architect + engineer</span><i>&bull;</i><span>A real build partner</span><i>&bull;</i><span>Underwritten to real rents</span><i>&bull;</i><span>Concept to keys</span><i>&bull;</i><span>GTA &middot; Hamilton &middot; KW &middot; Ottawa</span><i>&bull;</i><span>Fourplex &amp; sixplex</span><i>&bull;</i><span>Garden &amp; laneway suites</span><i>&bull;</i><span>Owner-first layouts</span><i>&bull;</i><span>Licensed architect + engineer</span><i>&bull;</i><span>A real build partner</span><i>&bull;</i><span>Underwritten to real rents</span><i>&bull;</i><span>Concept to keys</span><i>&bull;</i><span>GTA &middot; Hamilton &middot; KW &middot; Ottawa</span><i>&bull;</i>
+    <span>Triplex to sixplex</span><i>&bull;</i><span>Garden &amp; laneway suites</span><i>&bull;</i><span>Owner-first layouts</span><i>&bull;</i><span>Licensed architect + engineer</span><i>&bull;</i><span>A real build partner</span><i>&bull;</i><span>Underwritten to real rents</span><i>&bull;</i><span>Concept to keys</span><i>&bull;</i><span>Across Ontario, lot by lot</span><i>&bull;</i><span>Triplex to sixplex</span><i>&bull;</i><span>Garden &amp; laneway suites</span><i>&bull;</i><span>Owner-first layouts</span><i>&bull;</i><span>Licensed architect + engineer</span><i>&bull;</i><span>A real build partner</span><i>&bull;</i><span>Underwritten to real rents</span><i>&bull;</i><span>Concept to keys</span><i>&bull;</i><span>Across Ontario, lot by lot</span><i>&bull;</i>
   </div>
 </div>
 
@@ -334,9 +341,15 @@
         <img src="Renders/Taran.jpg" alt="Taran Aujla, Salesperson" style="aspect-ratio:4/5;object-position:center top">
       </div>
       <div class="body">
-        <span class="chip">Taran Aujla &middot; Salesperson</span>
+        <div class="who-id">
+          <div class="who-name">Taran Aujla</div>
+          <div class="who-role">Founder &middot; PlexEdge</div>
+          <div class="who-reg">Real Estate Salesperson &middot; HomeLife G1 Realty Inc., Brokerage &middot; RECO&nbsp;#6024721</div>
+          <div class="who-cred">Real estate investor &middot; Multiplex owner-operator &middot; Former real estate lawyer, nearly a decade</div>
+          <a href="https://www.linkedin.com/in/itstaranaujla/" class="who-li" target="_blank" rel="noopener">Connect on LinkedIn &rsaquo;</a>
+        </div>
         <p>Since 2000, I helped run my family&rsquo;s multiplexes in Montreal alongside my father and brother &mdash; while I was still studying and working. It was never a plan or a title. It was simply how we lived, and I don&rsquo;t think any of us would have called ourselves &ldquo;landlords.&rdquo; The buildings just worked: the rents covered the mortgage, so we lived in our own home without really paying for it. That is the quiet math of a well-run plex, and it is the first thing real estate ever taught me.</p>
-        <p>I went on to invest on my own and spent close to a decade in real estate law before becoming a licensed Salesperson. I have lived in a plex, collected the rent and fixed what broke &mdash; so I read these buildings as homes and businesses, not just listings.</p>
+        <p>I went on to invest on my own before moving to the deal side as a licensed Salesperson. I have lived in a plex, collected the rent and fixed what broke &mdash; so I read these buildings as homes and businesses, not just listings.</p>
         <h3 style="font-size:1.5rem;margin:22px 0 10px">We build for what a multiplex is &mdash; not for show.</h3>
         <p>A multiplex is income-producing housing. It has to be structurally sound, presentable, and genuinely well built inside: quality materials, real soundproofing, and proper separation between units so every household lives well. That is where the money should go.</p>
         <p>Too many builders in the GTA treat multiplexes like custom luxury homes &mdash; which only adds cost, not value. We keep projects affordable by spending on what matters (durability, function, livable homes) and skipping the expensive finishes that don&rsquo;t earn their keep.</p>
@@ -350,7 +363,7 @@
     <div class="shead"><span class="n">06 / THE TEAM</span><h2>A named operator and a licensed team.</h2></div>
     <div class="team">
       <div class="tcard">
-        <div class="r">Lead · Advisory &amp; representation</div>
+        <div class="r">Founder · PlexEdge</div>
         <h3>Taran Aujla</h3>
         <p>Real estate investor and former real estate lawyer who grew up managing his family&rsquo;s multiplexes. Finds the deal, reads the potential, and represents the sale or purchase &mdash; through HomeLife G1 Realty Inc., Brokerage.</p>
       </div>
