@@ -22,7 +22,7 @@
     --mono:'JetBrains Mono',monospace;
   }
   *{margin:0;padding:0;box-sizing:border-box}
-  html{scroll-behavior:smooth}
+  html{scroll-behavior:smooth;overflow-x:clip}
   body{font-family:var(--body);font-size:17px;line-height:1.65;color:var(--lead);background:var(--paper);-webkit-font-smoothing:antialiased}
   img{max-width:100%;display:block}
   a{color:inherit;text-decoration:none}
@@ -139,6 +139,15 @@
   .ba .ba-tag{position:absolute;bottom:14px;font-family:var(--mono);font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;background:rgba(45,45,45,.82);color:#fff;padding:6px 10px}
   .ba .t-before{left:14px}
   .ba .t-after{right:14px}
+  .ba-tab .tshort{display:none}
+  @media(max-width:560px){
+    .ba img{aspect-ratio:4/3}
+    .ba-tabs{width:100%}
+    .ba-tab{flex:1;padding:11px 5px;font-size:.62rem;letter-spacing:.03em;text-align:center}
+    .ba-tab .tfull{display:none}.ba-tab .tshort{display:inline}
+    .ba .ba-tag{font-size:.6rem;padding:5px 8px;bottom:10px}
+    .ba .t-after .tdesc{display:none}
+  }
   .ba .ba-range{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize;margin:0}
   .ba-spec{display:flex;flex-wrap:wrap;gap:8px 28px;border:1px solid var(--line);border-top:0;padding:13px 18px;font-family:var(--mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
   .ba-spec b{color:var(--lead);font-weight:600}
@@ -259,7 +268,7 @@
 
   /* mobile sticky cta */
   .mcta{position:fixed;bottom:0;left:0;right:0;z-index:40;display:none;gap:1px;background:var(--line);border-top:1px solid var(--line)}
-  .mcta .btn{flex:1;border-radius:0}
+  .mcta .btn{flex:1;min-width:0;border-radius:0;padding:14px 10px;font-size:.86rem}
   .mcta .btn.ghost{background:var(--paper);border-color:transparent}
   @media(max-width:640px){.mcta{display:flex}}
 
@@ -411,7 +420,7 @@
     <div class="ba-tabs" role="tablist" aria-label="Example market">
       <button class="ba-tab is-active" role="tab" aria-selected="true" data-city="to">Toronto</button>
       <button class="ba-tab" role="tab" aria-selected="false" data-city="mssa">Mississauga</button>
-      <button class="ba-tab" role="tab" aria-selected="false" data-city="kw">Kitchener&ndash;Waterloo</button>
+      <button class="ba-tab" role="tab" aria-selected="false" data-city="kw"><span class="tfull">Kitchener&ndash;Waterloo</span><span class="tshort">Kitchener</span></button>
     </div>
     <div class="ba" id="ba">
       <img class="ba-after" id="ba-after" src="Renders/web/Street-After.jpg" decoding="async" alt="After: the same lot as a modest brick fourplex that fits the street">
@@ -419,7 +428,7 @@
       <div class="ba-line" aria-hidden="true"></div>
       <div class="ba-grip" aria-hidden="true">&#8646;</div>
       <span class="ba-tag t-before">Before</span>
-      <span class="ba-tag t-after" id="ba-aftertag">After &middot; a fourplex that fits in</span>
+      <span class="ba-tag t-after">After<span class="tdesc" id="ba-afterdesc"> &middot; a fourplex that fits in</span></span>
       <input class="ba-range" type="range" min="0" max="100" value="50" aria-label="Drag to reveal before or after">
     </div>
     <div class="ba-spec" id="ba-spec"><b>TORONTO</b><span>CONCEPT: FOURPLEX</span><span>READ: FITS A ROW-HOUSE STREET</span><span>STATUS: ILLUSTRATIVE</span></div>
@@ -694,7 +703,7 @@ document.getElementById('yr').textContent=new Date().getFullYear();
       ba:'Before: an older red-brick home on an established Kitchener street',aa:'After: the same home renovated with a rear garden suite added'}
   };
   var after=document.getElementById('ba-after'),before=document.getElementById('ba-before'),
-      tag=document.getElementById('ba-aftertag'),spec=document.getElementById('ba-spec');
+      tag=document.getElementById('ba-afterdesc'),spec=document.getElementById('ba-spec');
   document.querySelectorAll('.ba-tab').forEach(function(t){t.addEventListener('click',function(){
     var c=cities[t.dataset.city];if(!c)return;
     document.querySelectorAll('.ba-tab').forEach(function(x){x.classList.remove('is-active');x.setAttribute('aria-selected','false');});
