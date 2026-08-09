@@ -216,6 +216,18 @@
   .faq .fa{padding:0 0 24px;color:var(--muted);font-size:1.02rem;line-height:1.62;max-width:72ch}
   .faq .fa b{color:var(--lead)}
 
+  /* dark charcoal band */
+  .darkband{background:var(--lead);border-top:1px solid rgba(255,255,255,.08)}
+  .darkband .idx .mono{color:#b9cdaa}
+  .darkband h2{color:var(--paper)}
+  .darkband .door{border-color:rgba(255,255,255,.16);background:rgba(255,255,255,.025)}
+  .darkband .door .lab{color:#b9cdaa}
+  .darkband .door h3{color:var(--paper)}
+  .darkband .door p{color:rgba(249,248,246,.82)}
+  .darkband .door p b{color:#fff}
+  .darkband .lnk{color:#cfe0c4}
+  .darkband .lnk:hover{color:#fff}
+
   /* drawing title-block */
   .tblock{display:grid;grid-template-columns:auto 1fr auto auto;border:1px solid var(--line);background:rgba(249,248,246,.7);margin-bottom:0}
   .tblock .cell{padding:14px 20px;border-right:1px solid var(--line)}
@@ -697,24 +709,24 @@
   </div>
 </section>
 
-<section id="doors">
+<section id="doors" class="darkband">
   <div class="wrap">
     <div class="shead">
-      <div class="idx"><span class="mono">Two Ways In</span></div>
-      <h2>One property. Two ways in.</h2>
+      <div class="idx"><span class="mono">Two ways in</span></div>
+      <h2>Buying, or sitting on a lot? Start here.</h2>
     </div>
     <div class="doors">
-      <div class="door" id="owners">
-        <span class="lab">Owner</span>
-        <h3>Unlock what your lot can become.</h3>
-        <p>We assess your property&rsquo;s real multiplex potential, prove it with a concept and real numbers, and either sell it for what it can become &mdash; or coordinate the full build with our licensed partners while <b>you keep ownership and the income.</b></p>
-        <a href="#contact" class="lnk">Get a free lot review &rarr;</a>
-      </div>
       <div class="door" id="buyers">
-        <span class="lab">Buyer</span>
-        <h3>Get first look at lots with potential.</h3>
-        <p>Join our private buyer list. We source lots with genuine multiplex upside, underwrite them to real leased rents &mdash; not aspirational numbers &mdash; bring a concept and a build quote, and represent your purchase end to end.</p>
-        <a href="#contact" class="lnk">Join the buyer list &rarr;</a>
+        <span class="lab">For buyers</span>
+        <h3>A home that helps pay for itself.</h3>
+        <p>We find the lots with real multiplex upside, prove the numbers, and represent your purchase &mdash; <b>live in one, let the others help carry the mortgage.</b></p>
+        <a href="/find/" class="lnk">How we find you a lot &rarr;</a>
+      </div>
+      <div class="door" id="owners">
+        <span class="lab">For owners</span>
+        <h3>Your lot may be worth more than the house.</h3>
+        <p>If your house sits on a lot that can hold three to six homes, we position and sell it for what it can become &mdash; not just another listing.</p>
+        <a href="/value/" class="lnk">See what your lot&rsquo;s worth &rarr;</a>
       </div>
     </div>
   </div>
@@ -751,24 +763,6 @@
       <div class="fcard"><h3>Light &amp; separation</h3><p>Good natural light and a proper sense of privacy &mdash; homes, not &ldquo;units.&rdquo;</p></div>
     </div>
     <p class="fclose">Expensive finishes only make sense when the rent supports them. We underwrite the building first, then design accordingly &mdash; <b>cost-disciplined, not stripped-down</b> &mdash; so the money goes where it earns its keep, not into flourishes tenants won&rsquo;t pay for.</p>
-  </div>
-</section>
-
-<section id="garden">
-  <div class="wrap">
-    <div class="feat">
-      <div class="figure">
-        <img src="Renders/web/Garden-Suite-1.jpg" loading="lazy" decoding="async" alt="A modern two-storey garden suite in a landscaped backyard behind a main home" style="aspect-ratio:16/10">
-        <div class="cap"><span>GARDEN SUITE &middot; ILLUSTRATIVE CONCEPT</span><b>THE +1</b></div>
-      </div>
-      <div class="body">
-        <div class="idx" style="display:flex;align-items:center;gap:16px;margin-bottom:20px"><span class="mono" style="color:var(--sage)">The +1</span></div>
-        <h2>Add a home in the backyard.</h2>
-        <p>Where the lot allows, a garden or laneway suite adds another unit without buying more land &mdash; extra income, space for family, and more of what a property can become.</p>
-        <p>We check what your lot actually permits, because the rules differ by city, and design the suite to fit the yard, the parking, and the budget.</p>
-        <a href="#contact" class="lnk">Ask about your backyard &rarr;</a>
-      </div>
-    </div>
   </div>
 </section>
 
@@ -875,7 +869,7 @@
     <div class="cols">
       <a class="logo" href="#top" aria-label="PlexEdge — top of page"><span class="mark" aria-hidden="true"><i></i><i></i><i></i></span><span aria-hidden="true">PLEX<b>EDG<svg class="e3" viewBox="0 0 100 128" aria-hidden="true"><rect x="0" y="0" width="100" height="24"/><rect x="0" y="52" width="100" height="24"/><rect x="0" y="104" width="100" height="24"/></svg></b></span></a>
       <div class="flinks">
-        <a href="#services">What we do</a><a href="#garden">Garden suites</a><a href="#faq">FAQ</a><a href="#how">How it works</a><a href="#contact">Contact</a>
+        <a href="/find/">For buyers</a><a href="/value/">For owners</a><a href="#services">What we do</a><a href="#faq">FAQ</a><a href="#contact">Contact</a>
       </div>
     </div>
     <div class="disc">
