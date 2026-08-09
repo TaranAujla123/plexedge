@@ -163,6 +163,25 @@
   @keyframes pedA{0%{stroke-dashoffset:100}3%{stroke-dashoffset:100}33%{stroke-dashoffset:0}100%{stroke-dashoffset:0}}
   @keyframes pedB{0%,50%{stroke-dashoffset:100}53%{stroke-dashoffset:100}83%{stroke-dashoffset:0}100%{stroke-dashoffset:0}}
 
+  /* the live-in difference — them vs us */
+  #difference .kicker{max-width:62ch}
+  .contrast{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:6px}
+  @media(max-width:720px){.contrast{grid-template-columns:1fr}}
+  .contrast .col{border:1px solid var(--line);padding:30px 32px;background:var(--paper)}
+  .contrast .us{border-color:var(--sage);background:rgba(107,127,92,.05)}
+  .contrast .ctag{display:block;font-family:var(--disp);font-size:.8rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;margin-bottom:18px}
+  .contrast .them .ctag{color:var(--muted)}
+  .contrast .us .ctag{color:var(--sage)}
+  .contrast ul{list-style:none;display:flex;flex-direction:column;gap:14px}
+  .contrast li{position:relative;padding-left:26px;font-size:1.05rem;line-height:1.5}
+  .contrast .them li{color:var(--muted)}
+  .contrast .them li::before{content:"\2013";position:absolute;left:2px;color:var(--muted)}
+  .contrast .us li{color:var(--lead)}
+  .contrast .us li::before{content:"";position:absolute;left:2px;top:.5em;width:9px;height:9px;background:var(--sage)}
+  .contrast .us li em{font-style:italic;color:var(--copper)}
+  .diff-close{margin-top:28px;font-size:1.16rem;line-height:1.6;max-width:70ch}
+  .diff-close b{color:var(--copper)}
+
   /* drawing title-block */
   .tblock{display:grid;grid-template-columns:auto 1fr auto auto;border:1px solid var(--line);background:rgba(249,248,246,.7);margin-bottom:0}
   .tblock .cell{padding:14px 20px;border-right:1px solid var(--line)}
@@ -504,6 +523,35 @@
     <p class="hero-disc">PlexEdge is not a brokerage &mdash; real estate services are provided by Taran Aujla, Salesperson, through HomeLife G1 Realty Inc., Brokerage. Family multiplex operators since 2000.</p>
   </div>
 </header>
+
+<section id="difference">
+  <div class="wrap">
+    <div class="shead">
+      <div class="idx"><span class="mono">The Live-In Difference</span></div>
+      <h2>Most developers build a fourplex. We design a home that helps pay for itself.</h2>
+      <p class="kicker">Ask the other companies who they&rsquo;re really building for, and the honest answer is an investor&rsquo;s spreadsheet. If you&rsquo;re going to live in one of these homes, the rent math is only half the story &mdash; the other half is whether your own front door still feels like home.</p>
+    </div>
+    <div class="contrast">
+      <div class="col them">
+        <span class="ctag">Most multiplex developers</span>
+        <ul>
+          <li>Sell a product &mdash; &ldquo;we&rsquo;ll build you a fourplex.&rdquo;</li>
+          <li>Optimize for the pro-forma, not the person</li>
+          <li>Hand over the keys and move on</li>
+        </ul>
+      </div>
+      <div class="col us">
+        <span class="ctag">PlexEdge</span>
+        <ul>
+          <li>Put the owner&rsquo;s home first in the plan &mdash; not the unit left over</li>
+          <li>Make the building perform <em>and</em> feel like somewhere you&rsquo;re proud to live</li>
+          <li>Advise from lot to livable &mdash; and help you operate it once you&rsquo;re in</li>
+        </ul>
+      </div>
+    </div>
+    <p class="diff-close">Done right, live-in ownership changes the whole equation: the other homes help carry the mortgage, the asset can build equity over time, and ownership that felt out of reach becomes <b>attainable</b> &mdash; without feeling like you&rsquo;re renting inside your own building.</p>
+  </div>
+</section>
 
 <section id="conversion">
   <div class="wrap">
