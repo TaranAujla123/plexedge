@@ -151,17 +151,17 @@
   .pe-morph #peMA,.pe-morph .capA{opacity:0}
   .pe-morph #peMB,.pe-morph .capB{opacity:1}
   @media (prefers-reduced-motion:no-preference){
-    .pe-morph #peMA{animation:peoA 5s ease-in-out infinite}
-    .pe-morph #peMB{animation:peoB 5s ease-in-out infinite}
-    .pe-morph #peMA .wall{animation:pedA 5s ease-in-out infinite}
-    .pe-morph #peMB .wall{animation:pedB 5s ease-in-out infinite}
-    .pe-morph .capA{animation:peoA 5s ease-in-out infinite}
-    .pe-morph .capB{animation:peoB 5s ease-in-out infinite}
+    .pe-morph #peMA{animation:peoA 7s ease-in-out infinite}
+    .pe-morph #peMB{animation:peoB 7s ease-in-out infinite}
+    .pe-morph #peMA .wall{animation:pedA 7s ease-in-out infinite}
+    .pe-morph #peMB .wall{animation:pedB 7s ease-in-out infinite}
+    .pe-morph .capA{animation:peoA 7s ease-in-out infinite}
+    .pe-morph .capB{animation:peoB 7s ease-in-out infinite}
   }
-  @keyframes peoA{0%{opacity:0}4%{opacity:1}40%{opacity:1}47%{opacity:0}100%{opacity:0}}
-  @keyframes peoB{0%,50%{opacity:0}54%{opacity:1}90%{opacity:1}97%{opacity:0}100%{opacity:0}}
-  @keyframes pedA{0%{stroke-dashoffset:100}4%{stroke-dashoffset:100}30%{stroke-dashoffset:0}100%{stroke-dashoffset:0}}
-  @keyframes pedB{0%,50%{stroke-dashoffset:100}54%{stroke-dashoffset:100}80%{stroke-dashoffset:0}100%{stroke-dashoffset:0}}
+  @keyframes peoA{0%{opacity:0}3%{opacity:1}40%{opacity:1}46%{opacity:0}100%{opacity:0}}
+  @keyframes peoB{0%,50%{opacity:0}53%{opacity:1}90%{opacity:1}96%{opacity:0}100%{opacity:0}}
+  @keyframes pedA{0%{stroke-dashoffset:100}3%{stroke-dashoffset:100}33%{stroke-dashoffset:0}100%{stroke-dashoffset:0}}
+  @keyframes pedB{0%,50%{stroke-dashoffset:100}53%{stroke-dashoffset:100}83%{stroke-dashoffset:0}100%{stroke-dashoffset:0}}
 
   /* drawing title-block */
   .tblock{display:grid;grid-template-columns:auto 1fr auto auto;border:1px solid var(--line);background:rgba(249,248,246,.7);margin-bottom:0}
