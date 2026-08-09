@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://plexedge.ca/</loc><priority>1.0</priority></url>
+  <url><loc>https://plexedge.ca/toronto/</loc><priority>0.8</priority></url>
+  <url><loc>https://plexedge.ca/mississauga/</loc><priority>0.8</priority></url>
+  <url><loc>https://plexedge.ca/hamilton/</loc><priority>0.8</priority></url>
+  <url><loc>https://plexedge.ca/kitchener-waterloo/</loc><priority>0.8</priority></url>
+  <url><loc>https://plexedge.ca/ottawa/</loc><priority>0.8</priority></url>
+</urlset>

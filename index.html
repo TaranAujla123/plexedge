@@ -206,6 +206,16 @@
   .svcard .sn{display:block;font-family:var(--disp);font-weight:700;font-size:1.12rem;letter-spacing:-.01em;color:var(--lead);margin-bottom:12px}
   .svcard p{font-size:.97rem;line-height:1.55;color:var(--muted)}
 
+  /* faq */
+  .faq{max-width:840px;border-top:1px solid var(--line);margin-top:6px}
+  .faq details{border-bottom:1px solid var(--line)}
+  .faq summary{list-style:none;cursor:pointer;padding:22px 0;font-family:var(--disp);font-weight:600;font-size:1.12rem;color:var(--lead);display:flex;justify-content:space-between;gap:20px;align-items:baseline}
+  .faq summary::-webkit-details-marker{display:none}
+  .faq summary::after{content:"+";color:var(--sage);font-weight:400;font-size:1.5rem;line-height:1;flex:none}
+  .faq details[open] summary::after{content:"\2013"}
+  .faq .fa{padding:0 0 24px;color:var(--muted);font-size:1.02rem;line-height:1.62;max-width:72ch}
+  .faq .fa b{color:var(--lead)}
+
   /* drawing title-block */
   .tblock{display:grid;grid-template-columns:auto 1fr auto auto;border:1px solid var(--line);background:rgba(249,248,246,.7);margin-bottom:0}
   .tblock .cell{padding:14px 20px;border-right:1px solid var(--line)}
@@ -814,6 +824,25 @@
   </div>
 </section>
 
+<section id="faq">
+  <div class="wrap">
+    <div class="shead">
+      <div class="idx"><span class="mono">Common Questions</span></div>
+      <h2>Multiplexes in Ontario, in plain language.</h2>
+      <p class="kicker">New rules, new options. Here are the basics &mdash; then we check your address and explore what&rsquo;s realistic, free.</p>
+    </div>
+    <div class="faq">
+      <details open><summary>What is a multiplex?</summary><div class="fa">A multiplex is simply a house with more than one home inside it &mdash; a triplex (three homes), a fourplex (four), up to a sixplex (six) &mdash; often with a garden suite in the backyard. You can live in one unit and let the others help carry the mortgage, or hold the whole building as an investment.</div></details>
+      <details><summary>Can I turn my detached house into a fourplex in Ontario?</summary><div class="fa">Often, yes. Ontario&rsquo;s recent rules make it much easier to add homes on lots that used to allow only one. Whether yours qualifies depends on the lot and the city &mdash; and that&rsquo;s the first thing we check, free, when you send us your address.</div></details>
+      <details><summary>Should I tear down or convert my existing house?</summary><div class="fa">There are two paths. <b>Converting</b> keeps your existing house and adds or carves out units &mdash; usually faster and less expensive. <b>Tearing down</b> and building new gives you more homes and a modern building, but costs more and takes longer. The right call depends on your house, your lot and your budget &mdash; we walk you through both, honestly.</div></details>
+      <details><summary>How many homes can my lot hold?</summary><div class="fa">It depends on the lot&rsquo;s size and shape and your city&rsquo;s rules &mdash; commonly three or four homes, sometimes up to six where permitted, plus a garden suite. We look at your specific address and tell you what&rsquo;s realistic before you spend anything.</div></details>
+      <details><summary>Where does PlexEdge work?</summary><div class="fa">Across Ontario, with a focus on the GTA, Hamilton, Waterloo Region and Ottawa. If you&rsquo;re elsewhere in the province, still reach out &mdash; we&rsquo;ll tell you honestly whether we can help.</div></details>
+      <details><summary>What does it cost to get started?</summary><div class="fa">Nothing to explore it. We start with a <b>free 30-minute consultation</b> &mdash; we look up your address, talk through your options, and give you an honest read before you spend a dollar.</div></details>
+    </div>
+    <p class="ba-invite" style="margin-top:30px">Ready when you are &mdash; <a class="lnk" href="#contact">book your free 30-minute consult</a>.</p>
+  </div>
+</section>
+
 <section id="contact" class="grid-bg">
   <div class="wrap">
     <div class="band">
@@ -846,7 +875,7 @@
     <div class="cols">
       <a class="logo" href="#top" aria-label="PlexEdge — top of page"><span class="mark" aria-hidden="true"><i></i><i></i><i></i></span><span aria-hidden="true">PLEX<b>EDG<svg class="e3" viewBox="0 0 100 128" aria-hidden="true"><rect x="0" y="0" width="100" height="24"/><rect x="0" y="52" width="100" height="24"/><rect x="0" y="104" width="100" height="24"/></svg></b></span></a>
       <div class="flinks">
-        <a href="#how">How it works</a><a href="#owners">Owners</a><a href="#buyers">Buyers</a><a href="#garden">Garden suites</a><a href="#contact">Contact</a>
+        <a href="#services">What we do</a><a href="#garden">Garden suites</a><a href="#faq">FAQ</a><a href="#how">How it works</a><a href="#contact">Contact</a>
       </div>
     </div>
     <div class="disc">
@@ -856,6 +885,16 @@
   </div>
 </footer>
 
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"What is a multiplex?","acceptedAnswer":{"@type":"Answer","text":"A multiplex is a house with more than one home inside it — a triplex (three homes), a fourplex (four), up to a sixplex (six) — often with a garden suite in the backyard. You can live in one unit and let the others help carry the mortgage, or hold the whole building as an investment."}},
+{"@type":"Question","name":"Can I turn my detached house into a fourplex in Ontario?","acceptedAnswer":{"@type":"Answer","text":"Often, yes. Ontario's recent rules make it much easier to add homes on lots that used to allow only one. Whether yours qualifies depends on the lot and the city — that's the first thing we check, free, when you send us your address."}},
+{"@type":"Question","name":"Should I tear down or convert my existing house?","acceptedAnswer":{"@type":"Answer","text":"There are two paths. Converting keeps your existing house and adds or carves out units — usually faster and less expensive. Tearing down and building new gives you more homes and a modern building, but costs more and takes longer. The right call depends on your house, your lot and your budget."}},
+{"@type":"Question","name":"How many homes can my lot hold?","acceptedAnswer":{"@type":"Answer","text":"It depends on the lot's size and shape and your city's rules — commonly three or four homes, sometimes up to six where permitted, plus a garden suite. We look at your specific address and tell you what's realistic."}},
+{"@type":"Question","name":"Where does PlexEdge work?","acceptedAnswer":{"@type":"Answer","text":"Across Ontario, with a focus on the GTA, Hamilton, Waterloo Region and Ottawa."}},
+{"@type":"Question","name":"What does it cost to get started?","acceptedAnswer":{"@type":"Answer","text":"Nothing to explore it. We start with a free 30-minute consultation — we look up your address, talk through your options, and give you an honest read before you spend a dollar."}}
+]}
+</script>
 <div class="mcta">
   <a href="#contact" class="btn solid">Check a lot</a>
   <a href="#contact" class="btn ghost">Reach out</a>
