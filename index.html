@@ -116,10 +116,52 @@
   .hero .sub{font-size:1.13rem;color:var(--muted);max-width:38em;margin:28px 0 36px}
   .hero .cta{display:flex;gap:14px;flex-wrap:wrap}
   .hero-disc{margin-top:26px;font-size:.74rem;line-height:1.55;color:var(--muted);max-width:64ch}
-  .htext{margin-bottom:64px}
+  .htext{margin-bottom:0}
   .hero-facts{display:flex;flex-wrap:wrap;gap:20px 56px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:22px 0}
   .hero-facts span{font-size:.95rem;color:var(--muted)}
   .hero-facts b{display:block;font-family:var(--disp);font-size:.78rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--sage);margin-bottom:4px}
+
+  /* hero: copy + animated lot-study side by side (stacks on mobile) */
+  .hero::after{display:none}
+  .hero-lead{display:grid;grid-template-columns:1fr;gap:44px;align-items:center;margin-bottom:60px}
+  @media(min-width:920px){.hero-lead{grid-template-columns:minmax(0,1.04fr) minmax(0,.96fr);gap:58px}}
+  .hero-viz{position:relative}
+  .pe-morph{position:relative;border:1px solid var(--line);background:var(--paper);padding:22px 20px 14px}
+  .pe-morph::before{content:"";position:absolute;inset:0;pointer-events:none;
+    background-image:linear-gradient(to right,rgba(107,127,92,.05) 1px,transparent 1px),linear-gradient(to bottom,rgba(107,127,92,.05) 1px,transparent 1px);background-size:34px 34px}
+  .pe-morph>*{position:relative}
+  .pe-morph svg{width:100%;height:auto;display:block;overflow:visible}
+  .pe-morph .ext{fill:none;stroke:var(--sage);stroke-width:5;stroke-linejoin:miter}
+  .pe-morph .wall{fill:none;stroke:var(--sage);stroke-width:3;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:100;stroke-dashoffset:0}
+  .pe-morph .fx{fill:none;stroke:var(--sage);stroke-width:1.5;stroke-linejoin:round;opacity:.85}
+  .pe-morph .swing{fill:none;stroke:var(--sage);stroke-width:1.1;opacity:.6}
+  .pe-morph .win{stroke:var(--paper);stroke-width:6}
+  .pe-morph .winln{stroke:var(--sage);stroke-width:1.3;opacity:.8}
+  .pe-morph .gap{stroke:var(--paper);stroke-width:7}
+  .pe-morph .door{stroke:var(--copper);stroke-width:5;stroke-linecap:round}
+  .pe-morph .stoop{fill:none;stroke:var(--sage);stroke-width:1.6;opacity:.65}
+  .pe-morph .lbl{font-family:'Caveat',cursive;font-weight:600;fill:var(--lead)}
+  .pe-morph .lbl.s{fill:var(--copper)}
+  .pe-morph .mcap{margin-top:12px;height:30px;position:relative}
+  .pe-morph .mcap>span{position:absolute;left:0;right:0;text-align:center;font-family:'Caveat',cursive;font-weight:600;font-size:1.55rem;line-height:1;color:var(--lead)}
+  .pe-morph .mcap .b{color:var(--copper)}
+  .pe-morph .mfoot{display:flex;justify-content:space-between;align-items:center;margin-top:2px}
+  .pe-morph .mfoot .cap2{font-family:var(--disp);font-size:.6rem;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:var(--sage)}
+  .pe-morph .mfoot .note{font-family:var(--disp);font-size:.58rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+  .pe-morph #peMA,.pe-morph .capA{opacity:0}
+  .pe-morph #peMB,.pe-morph .capB{opacity:1}
+  @media (prefers-reduced-motion:no-preference){
+    .pe-morph #peMA{animation:peoA 15s ease-in-out infinite}
+    .pe-morph #peMB{animation:peoB 15s ease-in-out infinite}
+    .pe-morph #peMA .wall{animation:pedA 15s ease-in-out infinite}
+    .pe-morph #peMB .wall{animation:pedB 15s ease-in-out infinite}
+    .pe-morph .capA{animation:peoA 15s ease-in-out infinite}
+    .pe-morph .capB{animation:peoB 15s ease-in-out infinite}
+  }
+  @keyframes peoA{0%{opacity:0}6%{opacity:1}44%{opacity:1}50%{opacity:0}100%{opacity:0}}
+  @keyframes peoB{0%,50%{opacity:0}56%{opacity:1}94%{opacity:1}100%{opacity:0}}
+  @keyframes pedA{0%{stroke-dashoffset:100}13%{stroke-dashoffset:0}100%{stroke-dashoffset:0}}
+  @keyframes pedB{0%,50%{stroke-dashoffset:100}63%{stroke-dashoffset:0}100%{stroke-dashoffset:0}}
 
   /* drawing title-block */
   .tblock{display:grid;grid-template-columns:auto 1fr auto auto;border:1px solid var(--line);background:rgba(249,248,246,.7);margin-bottom:0}
@@ -365,14 +407,94 @@
 
 <header class="hero grid-bg" id="top">
   <div class="wrap">
-    <div class="htext">
-        <span class="ey mono sage">Unlocking Hidden Density</span>
-        <h1>The homes<br>hiding in<br><em>the lot.</em></h1>
-        <p class="sub">A single lot can sometimes support three, four, five or even six homes. PlexEdge identifies the right properties, proves the potential with real design and numbers, and takes them from concept to transaction or build.</p>
-        <div class="cta">
-          <a href="#contact" class="btn solid">Check a lot &rarr;</a>
-          <a href="#how" class="btn ghost">See how it works</a>
+    <div class="hero-lead">
+      <div class="htext">
+          <span class="ey mono sage">Unlocking Hidden Density</span>
+          <h1>The homes<br>hiding in<br><em>the lot.</em></h1>
+          <p class="sub">A single lot can sometimes support three, four, five or even six homes. PlexEdge identifies the right properties, proves the potential with real design and numbers, and takes them from concept to transaction or build.</p>
+          <div class="cta">
+            <a href="#contact" class="btn solid">Check a lot &rarr;</a>
+            <a href="#how" class="btn ghost">See how it works</a>
+          </div>
+      </div>
+      <div class="hero-viz" aria-hidden="true">
+        <div class="pe-morph">
+          <svg viewBox="0 0 700 480" xmlns="http://www.w3.org/2000/svg">
+            <rect class="ext" x="90" y="55" width="520" height="360"/>
+            <g>
+              <line class="win" x1="165" y1="55" x2="235" y2="55"/><line class="winln" x1="165" y1="55" x2="235" y2="55"/>
+              <line class="win" x1="365" y1="55" x2="435" y2="55"/><line class="winln" x1="365" y1="55" x2="435" y2="55"/>
+              <line class="win" x1="90" y1="150" x2="90" y2="215"/><line class="winln" x1="90" y1="150" x2="90" y2="215"/>
+              <line class="win" x1="610" y1="150" x2="610" y2="215"/><line class="winln" x1="610" y1="150" x2="610" y2="215"/>
+            </g>
+            <g id="peMA">
+              <line class="wall" pathLength="100" x1="270" y1="55"  x2="270" y2="415"/>
+              <line class="wall" pathLength="100" x1="450" y1="55"  x2="450" y2="235"/>
+              <line class="wall" pathLength="100" x1="90"  y1="235" x2="270" y2="235"/>
+              <line class="wall" pathLength="100" x1="450" y1="235" x2="610" y2="235"/>
+              <line class="gap" x1="505" y1="415" x2="550" y2="415"/>
+              <line class="door" x1="505" y1="415" x2="505" y2="372"/><path class="swing" d="M505 372 A43 43 0 0 0 548 415"/>
+              <line class="gap" x1="270" y1="150" x2="270" y2="195"/><path class="swing" d="M270 195 A45 45 0 0 1 315 150"/>
+              <line class="gap" x1="270" y1="300" x2="270" y2="345"/><path class="swing" d="M270 345 A45 45 0 0 0 315 300"/>
+              <line class="gap" x1="150" y1="235" x2="195" y2="235"/><path class="swing" d="M150 235 A45 45 0 0 1 150 190"/>
+              <line class="gap" x1="510" y1="235" x2="555" y2="235"/>
+              <rect class="fx" x="112" y="80" width="95" height="66"/><line class="fx" x1="112" y1="96" x2="207" y2="96"/>
+              <rect class="fx" x="112" y="290" width="95" height="66"/><line class="fx" x1="112" y1="306" x2="207" y2="306"/>
+              <path class="fx" d="M290 78 H430 V120"/><rect class="fx" x="345" y="80" width="30" height="24"/>
+              <path class="fx" d="M300 380 h120 v-34 h-120 z M300 358 h120"/>
+              <rect class="fx" x="470" y="78" width="52" height="34" rx="6"/>
+              <ellipse class="fx" cx="560" cy="95" rx="14" ry="18"/>
+              <rect class="fx" x="470" y="150" width="34" height="20"/>
+              <text class="lbl" x="130" y="200" font-size="24">Bedroom</text>
+              <text class="lbl" x="132" y="390" font-size="24">Bedroom</text>
+              <text class="lbl" x="300" y="180" font-size="25">Kitchen</text>
+              <text class="lbl" x="315" y="330" font-size="26">Living</text>
+              <text class="lbl" x="500" y="205" font-size="22">Bath</text>
+            </g>
+            <g id="peMB">
+              <line class="wall" pathLength="100" x1="350" y1="55" x2="350" y2="415"/>
+              <line class="wall" pathLength="100" x1="90"  y1="230" x2="350" y2="230"/>
+              <line class="wall" pathLength="100" x1="210" y1="55"  x2="210" y2="230"/>
+              <line class="wall" pathLength="100" x1="200" y1="230" x2="200" y2="325"/>
+              <line class="wall" pathLength="100" x1="90"  y1="325" x2="200" y2="325"/>
+              <rect class="stoop" x="256" y="415" width="49" height="15"/>
+              <line class="gap" x1="258" y1="415" x2="303" y2="415"/>
+              <line class="door" x1="258" y1="415" x2="258" y2="373"/><path class="swing" d="M258 373 A44 44 0 0 0 302 415"/>
+              <line class="gap" x1="110" y1="230" x2="150" y2="230"/><path class="swing" d="M150 230 A40 40 0 0 1 110 270"/>
+              <line class="gap" x1="270" y1="230" x2="310" y2="230"/><path class="swing" d="M270 230 A40 40 0 0 0 310 270"/>
+              <line class="gap" x1="200" y1="345" x2="200" y2="385"/><path class="swing" d="M200 345 A40 40 0 0 0 240 385"/>
+              <rect class="fx" x="105" y="80" width="80" height="56"/><line class="fx" x1="105" y1="98" x2="185" y2="98"/>
+              <rect class="fx" x="230" y="80" width="80" height="56"/><line class="fx" x1="230" y1="98" x2="310" y2="98"/>
+              <rect class="fx" x="98" y="342" width="44" height="54" rx="6"/><ellipse class="fx" cx="168" cy="360" rx="11" ry="14"/>
+              <path class="fx" d="M344 240 V320 M344 240 H304"/><rect class="fx" x="310" y="246" width="26" height="16"/>
+              <text class="lbl s" x="232" y="330" font-size="25">Unit 1</text>
+              <line class="wall" pathLength="100" x1="350" y1="230" x2="610" y2="230"/>
+              <line class="wall" pathLength="100" x1="490" y1="55"  x2="490" y2="230"/>
+              <line class="wall" pathLength="100" x1="500" y1="230" x2="500" y2="325"/>
+              <line class="wall" pathLength="100" x1="500" y1="325" x2="610" y2="325"/>
+              <rect class="stoop" x="395" y="415" width="49" height="15"/>
+              <line class="gap" x1="397" y1="415" x2="442" y2="415"/>
+              <line class="door" x1="442" y1="415" x2="442" y2="373"/><path class="swing" d="M442 373 A44 44 0 0 1 398 415"/>
+              <line class="gap" x1="550" y1="230" x2="590" y2="230"/><path class="swing" d="M590 230 A40 40 0 0 0 550 270"/>
+              <line class="gap" x1="390" y1="230" x2="430" y2="230"/><path class="swing" d="M430 230 A40 40 0 0 1 390 270"/>
+              <line class="gap" x1="500" y1="345" x2="500" y2="385"/><path class="swing" d="M500 345 A40 40 0 0 1 460 385"/>
+              <rect class="fx" x="515" y="80" width="80" height="56"/><line class="fx" x1="515" y1="98" x2="595" y2="98"/>
+              <rect class="fx" x="390" y="80" width="80" height="56"/><line class="fx" x1="390" y1="98" x2="470" y2="98"/>
+              <rect class="fx" x="558" y="342" width="44" height="54" rx="6"/><ellipse class="fx" cx="532" cy="360" rx="11" ry="14"/>
+              <path class="fx" d="M356 240 V320 M356 240 H396"/><rect class="fx" x="364" y="246" width="26" height="16"/>
+              <text class="lbl s" x="407" y="330" font-size="25">Unit 2</text>
+            </g>
+          </svg>
+          <div class="mcap">
+            <span class="capA">A single-family home.</span>
+            <span class="capB">Same floor. <span class="b">Two homes.</span></span>
+          </div>
+          <div class="mfoot">
+            <span class="cap2">Lot study</span>
+            <span class="note">Illustrative &middot; not to scale</span>
+          </div>
         </div>
+      </div>
     </div>
     <div class="hero-facts">
       <span><b>What we do</b>Advisory &middot; Acquisition &middot; Development Coordination &middot; Sales</span>
