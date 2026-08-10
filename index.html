@@ -487,6 +487,12 @@
   .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s cubic-bezier(.22,1,.36,1),transform .6s cubic-bezier(.22,1,.36,1)}
   .reveal.show{opacity:1;transform:none}
   @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}.reveal{opacity:1!important;transform:none!important}}
+  .scrollcue{display:flex;justify-content:center;margin-top:46px}
+  .scrollcue a{display:inline-flex;flex-direction:column;align-items:center;gap:5px;color:var(--muted);font-family:var(--disp);font-size:.7rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;text-decoration:none}
+  .scrollcue a:hover{color:var(--sage)}
+  .scrollcue svg{width:22px;height:22px;stroke:var(--sage);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+  @media(prefers-reduced-motion:no-preference){.scrollcue svg{animation:cuebob 1.7s ease-in-out infinite}}
+  @keyframes cuebob{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
 </style>
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="alternate icon" href="/favicon.ico">
@@ -501,10 +507,10 @@
       <a href="#difference">Why us</a>
       <a href="#services">What we do</a>
       <a href="#idea">The Idea</a>
+      <a href="#who">About</a>
       <a href="#how">How</a>
       <a href="#numbers">Numbers</a>
       <a href="#financing">Financing</a>
-      <a href="#who">About</a>
     </div>
     <a href="#doors" class="btn solid">Get started</a>
     <button class="nav-toggle" aria-label="Menu" aria-expanded="false" aria-controls="nlinks"><i></i><i></i><i></i></button>
@@ -653,6 +659,7 @@
       <div class="svcard"><span class="sn">Development Coordination</span><p>One point of contact through design, permits and construction, working with our architect and builder partners &mdash; so you&rsquo;re not managing five trades yourself.</p></div>
       <div class="svcard"><span class="sn">Sales</span><p>We sell the finished multiplex &mdash; and the <b>potential</b>. If your lot already allows a fourplex but it&rsquo;s marketed like any other house, we position and sell it for what it can become. Buying instead? We represent you too &mdash; all through HomeLife G1 Realty Inc., Brokerage.</p></div>
     </div>
+    <div class="scrollcue"><a href="#build" aria-label="Keep reading"><span>More below</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></a></div>
   </div>
 </section>
 
@@ -672,6 +679,33 @@
       <div class="fcard"><h3>Light &amp; separation</h3><p>Good natural light and a proper sense of privacy &mdash; homes, not &ldquo;units.&rdquo;</p></div>
     </div>
     <p class="fclose">Expensive finishes only make sense when the rent supports them. We underwrite the building first, then design accordingly &mdash; <b>cost-disciplined, not stripped-down</b> &mdash; so the money goes where it earns its keep, not into flourishes tenants won&rsquo;t pay for.</p>
+  </div>
+</section>
+
+<section id="idea">
+  <div class="wrap">
+    <div class="shead">
+      <div class="idx"><span class="mono">The Idea</span></div>
+      <h2 style="line-height:1.2">They call it &ldquo;<span style="color:var(--sage)">house-hacking</span>.&rdquo; We grew up calling it <em style="color:var(--sage);font-style:italic">a home.</em></h2>
+    </div>
+    <div class="prose">
+      <div class="beat"><span class="mono">The fear</span>
+        <p>The idea is old and simple: own a small multi-unit building, live in the best part of it, and let the other homes help carry the mortgage. Across Ontario it gets branded &ldquo;house-hacking&rdquo; &mdash; a clever trick, trailed by every nightmare-landlord story you&rsquo;ve heard. That word is what scares good people away from a genuinely good home.</p>
+      </div>
+      <div class="beat"><span class="mono">The reframe</span>
+        <p>In Montreal, we never used it. For generations it was simply how families lived &mdash; the owner&rsquo;s side the largest and the nicest, with the yard, the garage and the bedrooms together, and steady neighbours in the homes alongside. Done properly, it isn&rsquo;t a hack. It&rsquo;s <b>live-in ownership</b>: a real home that quietly pays for itself.</p>
+      </div>
+      <div class="beat"><span class="mono">The craft</span>
+        <p>The building was never the hard part. The craft is living well alongside your tenants &mdash; the courtesy, the boundaries, the small rules that keep everyone comfortable. That is what we grew up with, and the part most owners here were simply never taught.</p>
+      </div>
+    </div>
+    <div class="signote">
+      <div>
+        <div class="sig">Taran Aujla</div>
+        <p class="cred">Grew up in &mdash; and invested in &mdash; the family&rsquo;s multiplexes in Montreal since 2000. Now on the deal side as a Salesperson, unlocking the multiplex advantage for live-in owners and investors across Ontario.</p>
+      </div>
+      <a href="#who" class="lnk">Learn more about me &rarr;</a>
+    </div>
   </div>
 </section>
 
@@ -782,32 +816,6 @@
   </div>
 </section>
 
-<section id="idea">
-  <div class="wrap">
-    <div class="shead">
-      <div class="idx"><span class="mono">The Idea</span></div>
-      <h2 style="line-height:1.2">They call it &ldquo;<span style="color:var(--sage)">house-hacking</span>.&rdquo; We grew up calling it <em style="color:var(--sage);font-style:italic">a home.</em></h2>
-    </div>
-    <div class="prose">
-      <div class="beat"><span class="mono">The fear</span>
-        <p>The idea is old and simple: own a small multi-unit building, live in the best part of it, and let the other homes help carry the mortgage. Across Ontario it gets branded &ldquo;house-hacking&rdquo; &mdash; a clever trick, trailed by every nightmare-landlord story you&rsquo;ve heard. That word is what scares good people away from a genuinely good home.</p>
-      </div>
-      <div class="beat"><span class="mono">The reframe</span>
-        <p>In Montreal, we never used it. For generations it was simply how families lived &mdash; the owner&rsquo;s side the largest and the nicest, with the yard, the garage and the bedrooms together, and steady neighbours in the homes alongside. Done properly, it isn&rsquo;t a hack. It&rsquo;s <b>live-in ownership</b>: a real home that quietly pays for itself.</p>
-      </div>
-      <div class="beat"><span class="mono">The craft</span>
-        <p>The building was never the hard part. The craft is living well alongside your tenants &mdash; the courtesy, the boundaries, the small rules that keep everyone comfortable. That is what we grew up with, and the part most owners here were simply never taught.</p>
-      </div>
-    </div>
-    <div class="signote">
-      <div>
-        <div class="sig">Taran Aujla</div>
-        <p class="cred">Grew up in &mdash; and invested in &mdash; the family&rsquo;s multiplexes in Montreal since 2000. Now on the deal side as a Salesperson, unlocking the multiplex advantage for live-in owners and investors across Ontario.</p>
-      </div>
-      <a href="#who" class="lnk">Learn more about me &rarr;</a>
-    </div>
-  </div>
-</section>
 
 <section id="numbers" class="grid-bg">
   <div class="wrap">
