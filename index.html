@@ -77,6 +77,16 @@
 
   /* ---------- nav ---------- */
   nav{position:fixed;top:0;left:0;right:0;z-index:50;transition:background .25s,border-color .25s,box-shadow .25s;border-bottom:1px solid transparent}
+  @media(min-width:900px){nav .logo{font-size:1.62rem}nav .logo .tag{font-size:.6rem;letter-spacing:.16em}nav .logo .mark{width:27px;height:27px}}
+  /* top disclosure banner */
+  .topbar{position:fixed;top:0;left:0;right:0;z-index:51;background:var(--lead)}
+  .topbar .tb-in{display:flex;align-items:center;justify-content:space-between;gap:20px;height:34px}
+  .topbar .tb-l{font-family:var(--disp);font-size:.76rem;font-weight:500;color:rgba(249,248,246,.82);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .topbar .tb-l b{color:var(--paper);font-weight:600}
+  .topbar .tb-r{font-family:var(--disp);font-size:.78rem;font-weight:600;color:var(--paper);white-space:nowrap;text-decoration:none}
+  .topbar .tb-r:hover{color:var(--sage)}
+  nav{top:34px}
+  @media(max-width:800px){.topbar{display:none}nav{top:0}}
   nav.scrolled{background:rgba(249,248,246,.94);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom-color:var(--line)}
   nav .in{display:flex;align-items:center;justify-content:space-between;height:68px}
   .logo{display:flex;align-items:center;gap:14px;font-family:var(--disp);font-weight:700;font-size:1.46rem;letter-spacing:0.005em}
@@ -85,7 +95,7 @@
   .logo .mark{align-self:center;box-sizing:border-box;width:25px;height:25px;border:1.5px solid var(--lead);display:flex;flex-direction:column;justify-content:space-between;padding:4.5px 3.5px}
   .logo .mark i{display:block;height:2px;background:var(--sage);transform-origin:left center}
   .logo b{color:var(--sage);font-weight:700}
-  .logo .e3{width:.55em;height:.7em;margin-left:.07em;overflow:visible}
+  .logo .e3{width:.55em;height:.72em;margin-left:.07em;overflow:visible;transform:translateY(-0.03em)}
   .logo .e3 rect{fill:var(--sage);transform-origin:left center}
   nav .nlinks{display:flex;gap:26px}
   nav .nlinks a{font-family:var(--disp);font-size:.9rem;font-weight:500;letter-spacing:.01em;color:var(--muted)}
@@ -228,6 +238,15 @@
   .darkband .door p b{color:#fff}
   .darkband .lnk{color:#cfe0c4}
   .darkband .lnk:hover{color:#fff}
+  /* How-it-works on charcoal: step-card overrides */
+  .darkband .steps{border-color:rgba(255,255,255,.15)}
+  .darkband .step{border-color:rgba(255,255,255,.15)}
+  .darkband .step h3{color:var(--paper)}
+  .darkband .step p{color:rgba(249,248,246,.80)}
+  .darkband .step .num{color:#b9cdaa}
+  @media(max-width:540px){.darkband .step{border-bottom-color:rgba(255,255,255,.15)!important}}
+  /* What-we-do on soft blueprint-green wash + grid */
+  #services{background:var(--wash)}
 
   /* financing */
   .fin-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:8px}
@@ -389,6 +408,15 @@
   .who-reg{font-size:.85rem;color:var(--lead);border-top:1px solid var(--line);padding-top:14px}
   .who-cred{font-size:.85rem;color:var(--muted);margin-top:6px}
   .who-li{display:inline-block;margin-top:14px}
+  /* Founder ID card on charcoal + portrait shadow/border */
+  .who-id{background:var(--lead);border-color:rgba(255,255,255,.10)}
+  .who-id .who-name{color:var(--paper)}
+  .who-id .who-role{color:#b9cdaa}
+  .who-id .who-reg{color:rgba(249,248,246,.92);border-top-color:rgba(255,255,255,.14)}
+  .who-id .who-cred{color:rgba(249,248,246,.70)}
+  .who-id .who-li{color:#cfe0c4}
+  .who-id .who-li:hover{color:#fff}
+  #who .figure{border-color:rgba(45,45,45,.20);box-shadow:0 16px 40px -18px rgba(45,45,45,.34)}
   #who .body p{font-size:.95rem}
   #who h3{margin:26px 0 10px;font-size:1.3rem}
 
@@ -469,9 +497,18 @@
   .reveal.show{opacity:1;transform:none}
   @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}.reveal{opacity:1!important;transform:none!important}}
 </style>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="alternate icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 </head>
 <body>
 
+<div class="topbar">
+  <div class="wrap tb-in">
+    <span class="tb-l"><b>Ontario multiplex advisory.</b> Real estate services by Taran Aujla, Salesperson &middot; HomeLife G1 Realty Inc., Brokerage</span>
+    <a class="tb-r" href="tel:+13656457332">Direct: (365)&nbsp;645-7332</a>
+  </div>
+</div>
 <nav id="nav">
   <div class="wrap in">
     <a class="logo" href="#top" aria-label="PlexEdge — Ontario Multiplex Advisory — home"><span class="mark" aria-hidden="true"><i></i><i></i><i></i></span><span class="wm-col"><span class="wm" aria-hidden="true">PLEX<b>EDG<svg class="e3" viewBox="0 0 100 128" aria-hidden="true"><rect x="0" y="0" width="100" height="24"/><rect x="0" y="52" width="100" height="24"/><rect x="0" y="104" width="100" height="24"/></svg></b></span><span class="tag">Ontario Multiplex Advisory</span></span></a>
@@ -492,9 +529,9 @@
   <div class="wrap">
     <div class="hero-lead">
       <div class="htext">
-          <span class="ey mono sage">Unlocking Hidden Density</span>
+          <span class="ey mono sage">Ontario Multiplex &middot; Unlocking Hidden Density</span>
           <h1>The homes<br>hiding in<br><em>the lot.</em></h1>
-          <p class="sub">A single lot can now hold three or four homes &mdash; and up to six in parts of Toronto. PlexEdge identifies the right properties, proves the potential with real design and numbers, and takes them from concept to transaction or build.</p>
+          <p class="sub">Across Ontario, a single lot can now hold three or four homes &mdash; up to six in parts of Toronto. PlexEdge identifies the right properties, proves the potential with real design and numbers, and takes them from concept to transaction or build.</p>
           <div class="cta">
             <a href="#contact" class="btn solid">Check a lot &rarr;</a>
             <a href="#how" class="btn ghost">See how it works</a>
@@ -617,7 +654,7 @@
   </div>
 </section>
 
-<section id="services">
+<section id="services" class="grid-bg">
   <div class="wrap">
     <div class="shead">
       <div class="idx"><span class="mono">What We Do</span></div>
@@ -626,7 +663,7 @@
     </div>
     <div class="svc">
       <div class="svcard"><span class="sn">Advisory</span><p>We read what your lot can legally become &mdash; triplex to sixplex, depending on the city &mdash; and what it&rsquo;s realistically worth as one, with real design and numbers before you commit.</p></div>
-      <div class="svcard"><span class="sn">Acquisition</span><p>Buying to build? We find and secure multiplex-ready lots across the GTA, Hamilton, Waterloo Region and Ottawa &mdash; on and off market.</p></div>
+      <div class="svcard"><span class="sn">Acquisition</span><p>Buying to build? We find and secure multiplex-ready lots across the GTA, Hamilton, Waterloo Region and Ottawa &mdash; on and off market &mdash; with financing guided by our mortgage-broker partner.</p></div>
       <div class="svcard"><span class="sn">Development Coordination</span><p>One point of contact through design, permits and construction, working with our architect and builder partners &mdash; so you&rsquo;re not managing five trades yourself.</p></div>
       <div class="svcard"><span class="sn">Sales</span><p>We sell the finished multiplex &mdash; and the <b>potential</b>. If your lot already allows a fourplex but it&rsquo;s marketed like any other house, we position and sell it for what it can become. Buying instead? We represent you too &mdash; all through HomeLife G1 Realty Inc., Brokerage.</p></div>
     </div>
@@ -671,7 +708,7 @@
         <div class="tcard">
           <div class="r">Partner &middot; Construction</div>
           <h3>Multiplex build partner</h3>
-          <p>A real builder producing firm quotes and delivering the project &mdash; so the numbers on paper hold up on site.</p>
+          <p>Every lot is assessed on its own to decide whether a conversion or a new build is the right approach &mdash; then a real builder produces firm quotes and delivers the project, so the numbers on paper hold up on site.</p>
         </div>
         <div class="tcard">
           <div class="r">Partner &middot; Financing</div>
@@ -683,7 +720,7 @@
   </div>
 </section>
 
-<section id="how">
+<section id="how" class="darkband">
   <div class="wrap">
     <div class="shead">
       <div class="idx"><span class="mono">How It Works</span></div>
