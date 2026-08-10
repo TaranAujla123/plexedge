@@ -78,15 +78,6 @@
   /* ---------- nav ---------- */
   nav{position:fixed;top:0;left:0;right:0;z-index:50;transition:background .25s,border-color .25s,box-shadow .25s;border-bottom:1px solid transparent}
   @media(min-width:900px){nav .logo{font-size:1.62rem}nav .logo .tag{font-size:.6rem;letter-spacing:.16em}nav .logo .mark{width:27px;height:27px}}
-  /* top disclosure banner */
-  .topbar{position:fixed;top:0;left:0;right:0;z-index:51;background:var(--lead)}
-  .topbar .tb-in{display:flex;align-items:center;justify-content:space-between;gap:20px;height:34px}
-  .topbar .tb-l{font-family:var(--disp);font-size:.76rem;font-weight:500;color:rgba(249,248,246,.82);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-  .topbar .tb-l b{color:var(--paper);font-weight:600}
-  .topbar .tb-r{font-family:var(--disp);font-size:.78rem;font-weight:600;color:var(--paper);white-space:nowrap;text-decoration:none}
-  .topbar .tb-r:hover{color:var(--sage)}
-  nav{top:34px}
-  @media(max-width:800px){.topbar{display:none}nav{top:0}}
   nav.scrolled{background:rgba(249,248,246,.94);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom-color:var(--line)}
   nav .in{display:flex;align-items:center;justify-content:space-between;height:68px}
   .logo{display:flex;align-items:center;gap:14px;font-family:var(--disp);font-weight:700;font-size:1.46rem;letter-spacing:0.005em}
@@ -503,12 +494,6 @@
 </head>
 <body>
 
-<div class="topbar">
-  <div class="wrap tb-in">
-    <span class="tb-l"><b>Ontario multiplex advisory.</b> Real estate services by Taran Aujla, Salesperson &middot; HomeLife G1 Realty Inc., Brokerage</span>
-    <a class="tb-r" href="tel:+13656457332">Direct: (365)&nbsp;645-7332</a>
-  </div>
-</div>
 <nav id="nav">
   <div class="wrap in">
     <a class="logo" href="#top" aria-label="PlexEdge — Ontario Multiplex Advisory — home"><span class="mark" aria-hidden="true"><i></i><i></i><i></i></span><span class="wm-col"><span class="wm" aria-hidden="true">PLEX<b>EDG<svg class="e3" viewBox="0 0 100 128" aria-hidden="true"><rect x="0" y="0" width="100" height="24"/><rect x="0" y="52" width="100" height="24"/><rect x="0" y="104" width="100" height="24"/></svg></b></span><span class="tag">Ontario Multiplex Advisory</span></span></a>
@@ -667,7 +652,25 @@
       <div class="svcard"><span class="sn">Development Coordination</span><p>One point of contact through design, permits and construction, working with our architect and builder partners &mdash; so you&rsquo;re not managing five trades yourself.</p></div>
       <div class="svcard"><span class="sn">Sales</span><p>We sell the finished multiplex &mdash; and the <b>potential</b>. If your lot already allows a fourplex but it&rsquo;s marketed like any other house, we position and sell it for what it can become. Buying instead? We represent you too &mdash; all through HomeLife G1 Realty Inc., Brokerage.</p></div>
     </div>
-    <p style="margin-top:30px"><a class="lnk" href="#build">See how we actually build &mdash; our design focus &rarr;</a></p>
+  </div>
+</section>
+
+<section id="build">
+  <div class="wrap">
+    <div class="shead">
+      <div class="idx"><span class="mono">Build Focus</span></div>
+      <h2>We design for what a multiplex is &mdash; not for show.</h2>
+      <p class="kicker">A multiplex is income-producing housing. The money belongs in the things people actually live with &mdash; that is where it should go.</p>
+    </div>
+    <div class="fgrid">
+      <div class="fcard"><h3>Layouts that work</h3><p>Real bedrooms, real storage, space where it counts &mdash; in every unit, not just the owner&rsquo;s.</p></div>
+      <div class="fcard"><h3>Soundproofing</h3><p>Proper separation you can hear &mdash; the difference between neighbours and noise.</p></div>
+      <div class="fcard"><h3>Insulation &amp; efficiency</h3><p>Built to today&rsquo;s code, so heating and cooling bills stay predictable.</p></div>
+      <div class="fcard"><h3>Durable materials</h3><p>Chosen for the people living there and the years ahead &mdash; not for staging photos.</p></div>
+      <div class="fcard"><h3>Mechanical systems</h3><p>The unglamorous equipment that quietly decides what a building costs to run.</p></div>
+      <div class="fcard"><h3>Light &amp; separation</h3><p>Good natural light and a proper sense of privacy &mdash; homes, not &ldquo;units.&rdquo;</p></div>
+    </div>
+    <p class="fclose">Expensive finishes only make sense when the rent supports them. We underwrite the building first, then design accordingly &mdash; <b>cost-disciplined, not stripped-down</b> &mdash; so the money goes where it earns its keep, not into flourishes tenants won&rsquo;t pay for.</p>
   </div>
 </section>
 
@@ -887,24 +890,6 @@
 
 
 
-<section id="build">
-  <div class="wrap">
-    <div class="shead">
-      <div class="idx"><span class="mono">Build Focus</span></div>
-      <h2>We design for what a multiplex is &mdash; not for show.</h2>
-      <p class="kicker">A multiplex is income-producing housing. The money belongs in the things people actually live with &mdash; that is where it should go.</p>
-    </div>
-    <div class="fgrid">
-      <div class="fcard"><h3>Layouts that work</h3><p>Real bedrooms, real storage, space where it counts &mdash; in every unit, not just the owner&rsquo;s.</p></div>
-      <div class="fcard"><h3>Soundproofing</h3><p>Proper separation you can hear &mdash; the difference between neighbours and noise.</p></div>
-      <div class="fcard"><h3>Insulation &amp; efficiency</h3><p>Built to today&rsquo;s code, so heating and cooling bills stay predictable.</p></div>
-      <div class="fcard"><h3>Durable materials</h3><p>Chosen for the people living there and the years ahead &mdash; not for staging photos.</p></div>
-      <div class="fcard"><h3>Mechanical systems</h3><p>The unglamorous equipment that quietly decides what a building costs to run.</p></div>
-      <div class="fcard"><h3>Light &amp; separation</h3><p>Good natural light and a proper sense of privacy &mdash; homes, not &ldquo;units.&rdquo;</p></div>
-    </div>
-    <p class="fclose">Expensive finishes only make sense when the rent supports them. We underwrite the building first, then design accordingly &mdash; <b>cost-disciplined, not stripped-down</b> &mdash; so the money goes where it earns its keep, not into flourishes tenants won&rsquo;t pay for.</p>
-  </div>
-</section>
 
 <section id="faq">
   <div class="wrap">
