@@ -1093,5 +1093,123 @@ document.getElementById('yr').textContent=new Date().getFullYear();
   });
 })();
 </script>
+
+<!-- ==================== LOT CONCIERGE ==================== -->
+<style>
+  .cc-launch{position:fixed;right:22px;bottom:22px;z-index:95;display:inline-flex;align-items:center;gap:9px;background:var(--sage);color:#fff;font-family:var(--disp);font-weight:700;font-size:.92rem;padding:13px 18px;border:0;cursor:pointer;box-shadow:0 10px 30px -8px rgba(45,45,45,.42)}
+  .cc-launch:hover{background:var(--copper)}
+  .cc-launch svg{width:18px;height:18px;stroke:#fff;fill:none;stroke-width:2}
+  @media(max-width:640px){.cc-launch{bottom:80px;right:12px;padding:12px 15px;font-size:.85rem}}
+  .cc-panel{position:fixed;right:22px;bottom:22px;z-index:96;width:392px;max-width:calc(100vw - 28px);height:602px;max-height:calc(100vh - 44px);background:var(--paper);border:1px solid var(--line);box-shadow:0 24px 60px -18px rgba(45,45,45,.5);display:none;flex-direction:column}
+  .cc-panel.open{display:flex}
+  @media(max-width:640px){.cc-panel{right:8px;left:8px;bottom:8px;width:auto;height:calc(100vh - 16px);max-height:none}}
+  .cc-head{display:flex;align-items:center;gap:12px;padding:15px 18px;background:var(--lead);color:var(--paper)}
+  .cc-head .cc-mark{box-sizing:border-box;width:24px;height:24px;border:1.5px solid var(--paper);display:flex;flex-direction:column;justify-content:space-between;padding:4px 3px;flex:none}
+  .cc-head .cc-mark i{display:block;height:2px;background:var(--sage)}
+  .cc-head .cc-htext b{font-family:var(--disp);font-weight:700;font-size:.92rem;letter-spacing:.06em;text-transform:uppercase;display:block;line-height:1.1}
+  .cc-head .cc-htext span{font-size:.76rem;color:rgba(249,248,246,.68)}
+  .cc-head .cc-x{margin-left:auto;background:0;border:0;color:rgba(249,248,246,.8);cursor:pointer;font-size:1.5rem;line-height:1;padding:2px 6px}
+  .cc-head .cc-x:hover{color:#fff}
+  .cc-body{flex:1;overflow-y:auto;padding:18px;display:flex;flex-direction:column;gap:12px}
+  .cc-msg{max-width:86%;padding:12px 14px;font-size:.95rem;line-height:1.5}
+  .cc-msg.bot{align-self:flex-start;background:var(--wash);color:var(--lead)}
+  .cc-msg.user{align-self:flex-end;background:var(--lead);color:var(--paper)}
+  .cc-msg.bot b{color:var(--copper)}
+  .cc-form{display:flex;flex-direction:column;gap:10px;background:#fff;border:1px solid var(--sage);padding:16px;align-self:stretch}
+  .cc-form p{font-size:.9rem;color:var(--lead);font-family:var(--disp);font-weight:600}
+  .cc-form input,.cc-form select{font-family:var(--body);font-size:.95rem;padding:11px 12px;border:1px solid var(--line);background:var(--paper);color:var(--lead)}
+  .cc-form button{font-family:var(--disp);font-weight:700;font-size:.9rem;padding:12px;background:var(--sage);color:#fff;border:0;cursor:pointer}
+  .cc-form button:hover{background:var(--copper)}
+  .cc-foot{display:flex;border-top:1px solid var(--line)}
+  .cc-foot input{flex:1;border:0;padding:14px 16px;font-family:var(--body);font-size:.95rem;background:var(--paper);color:var(--lead)}
+  .cc-foot input:focus{outline:2px solid var(--sage);outline-offset:-2px}
+  .cc-foot button{background:var(--sage);border:0;color:#fff;padding:0 18px;cursor:pointer}
+  .cc-foot button:hover{background:var(--copper)}
+  .cc-foot button svg{width:18px;height:18px;stroke:#fff;fill:none;stroke-width:2}
+  .cc-disc{font-size:.66rem;color:var(--muted);padding:8px 16px;border-top:1px solid var(--line);line-height:1.4}
+</style>
+<button class="cc-launch" id="ccLaunch" aria-label="Open the lot concierge"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Check your lot</button>
+<div class="cc-panel" id="ccPanel" role="dialog" aria-label="PlexEdge lot concierge">
+  <div class="cc-head">
+    <span class="cc-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+    <span class="cc-htext"><b>Lot Concierge</b><span>Ontario multiplex &mdash; quick answers</span></span>
+    <button class="cc-x" id="ccClose" aria-label="Close">&times;</button>
+  </div>
+  <div class="cc-body" id="ccBody"></div>
+  <div class="cc-foot">
+    <input id="ccInput" type="text" placeholder="Ask about zoning, cost, financing&hellip;" autocomplete="off">
+    <button id="ccSend" aria-label="Send"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 2 11 13"/><path d="M22 2 15 22l-4-9-9-4 20-7z"/></svg></button>
+  </div>
+  <div class="cc-disc">General information only &mdash; every lot is verified individually. Not advice or an offer.</div>
+</div>
+<script>
+(function(){
+  var WORKER_URL="";                                  /* set to your Cloudflare Worker URL to switch on real Claude */
+  var FORMSPREE="https://formspree.io/f/xkoezqwa";
+  var FREE=2;                                          /* free answers before the lead gate */
+  var FALLBACK="Good question &mdash; the honest answer depends on your specific lot. The best next step is a free lot check, where we look at your address and give you a straight read. Want to book one?";
+  var KB=[
+    {rx:/^(hi|hey|hello|yo|good (morning|afternoon|evening))/i, a:"Hi! Ask me what your lot could become, tear-down vs conversion, cost, or financing &mdash; I&rsquo;ll give you a straight read."},
+    {rx:/(how many|units|fourplex|triplex|sixplex|duplex|build on|density|what can i (build|do|put)|how many homes|what.s allowed)/i, a:"In most of Ontario a single residential lot can now hold <b>three or four homes</b> as-of-right &mdash; a triplex or fourplex. In parts of Toronto (nine designated wards) it can be <b>up to six</b>. Many lots can add a garden or laneway suite on top. What <b>your</b> lot can do depends on the lot and the city &mdash; which is exactly what we check. Want us to look at a specific address?"},
+    {rx:/(convert|conversion|tear.?down|rebuild|renovate|existing house|keep the house|demolish)/i, a:"Two ways in: <b>convert</b> the existing house (add or divide units &mdash; usually faster and cheaper, good when the house is sound and the lot has room), or <b>build new</b> (tear down for a purpose-built multiplex &mdash; more homes and a proper owner&rsquo;s suite, but a bigger budget and timeline). We assess each lot on its own and tell you honestly which one fits."},
+    {rx:/(cost|price|how much|afford|budget|expensive|\$|pay for)/i, a:"It depends on the lot and scope, so we underwrite each one to real leased comparables and a real build quote &mdash; no fantasy math. As an illustration only, a suburban detached converted to four units can run roughly <b>$1.6M all-in</b>, with three income units covering most of the mortgage. That&rsquo;s illustrative, not a quote &mdash; and if a project doesn&rsquo;t pencil, we say so."},
+    {rx:/(financ|mortgage|cmhc|mli|down ?payment|lender|loan|insured)/i, a:"Owner-occupied purchases can go in with as little as <b>5% down on 1&ndash;2 units</b>, or about <b>10% on 3&ndash;4 units</b>, through CMHC-insured programs. For 5+ units there&rsquo;s <b>CMHC MLI Select</b>, which rewards affordable, energy-efficient or accessible builds with better terms. Our mortgage-broker partner guides the financing end to end. Terms are subject to lender approval and can change."},
+    {rx:/(where|area|located|location|city|toronto|mississauga|hamilton|ottawa|waterloo|kitchener|brampton|region|do you (serve|work)|near me)/i, a:"We work across the <b>Greater Toronto Area</b> (Toronto, Peel, York, Durham, Halton), <b>Waterloo Region</b>, <b>Hamilton</b> and <b>Ottawa</b>. If you&rsquo;re elsewhere in Ontario, still ask &mdash; we&rsquo;ll tell you honestly whether we can help."},
+    {rx:/(garden suite|laneway|backyard|secondary suite|\badu\b|coach house)/i, a:"Many Ontario lots can add a <b>garden suite</b> (in the backyard), or a <b>laneway suite</b> where the lot backs onto a public lane &mdash; on top of the main building&rsquo;s units where permitted. Toronto is especially open to this."},
+    {rx:/(how does|process|steps|get started|begin|first step|work with you|timeline|how long)/i, a:"Four steps: we <b>find</b> the right lot, <b>prove</b> the potential (zoning, a concept and real build numbers), <b>position</b> it, and <b>coordinate</b> design, permits and construction through to key handover &mdash; one point of contact. The easiest start is a free lot check on your address."},
+    {rx:/(risk|risky|guarantee|safe|what if it|scared|worried|nervous)/i, a:"We label exactly how far each project is proven &mdash; from &ldquo;zoning already allows it&rdquo; to &ldquo;permit in hand&rdquo; &mdash; so you never mistake a possibility for a permit. And if the numbers don&rsquo;t work, we tell you before you spend a dollar."},
+    {rx:/(landlord|tenant|manage|management|rent out|renting|screen)/i, a:"You run your own building, and we help you run it well &mdash; including finding and screening the right tenants (through PlexRent, in development). It&rsquo;s a home first: you live in the biggest unit, and the other homes help carry the cost."},
+    {rx:/(neighbou?r|privacy|people next|next to me|strangers|noise|sound)/i, a:"A multiplex is designed and built for privacy &mdash; proper sound separation and smart layouts &mdash; no different than a condo, a townhouse, or a new detached home built a few feet from the next. Day to day, they&rsquo;re just neighbours."},
+    {rx:/(who (are|is)|taran|about you|your experience|background|licensed|realtor|agent|brokerage)/i, a:"PlexEdge is led by <b>Taran Aujla</b> &mdash; a Real Estate Salesperson with HomeLife G1 Realty Inc., Brokerage, who grew up in, invested in and managed his family&rsquo;s multiplexes, and practised business and real estate law for a decade. You work with an owner, not a marketer."}
+  ];
+  var panel=document.getElementById("ccPanel"),launch=document.getElementById("ccLaunch"),
+      body=document.getElementById("ccBody"),input=document.getElementById("ccInput"),
+      sendb=document.getElementById("ccSend"),closeb=document.getElementById("ccClose");
+  var answered=0,gated=false,captured=false,pendingQ=null,greeted=false;
+  function esc(t){var d=document.createElement("div");d.textContent=t;return d.innerHTML;}
+  function add(html,who){var d=document.createElement("div");d.className="cc-msg "+who;d.innerHTML=html;body.appendChild(d);body.scrollTop=body.scrollHeight;return d;}
+  function scripted(t){for(var i=0;i<KB.length;i++){if(KB[i].rx.test(t))return KB[i].a;}return FALLBACK;}
+  function reply(t){
+    if(WORKER_URL){return fetch(WORKER_URL,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({q:t})}).then(function(r){return r.json();}).then(function(j){return j.reply||scripted(t);}).catch(function(){return scripted(t);});}
+    return Promise.resolve(scripted(t));
+  }
+  function transcript(){var out=[],m=body.querySelectorAll(".cc-msg");for(var i=0;i<m.length;i++){out.push((m[i].className.indexOf("user")>-1?"User: ":"PlexEdge: ")+m[i].textContent);}return out.join("\n");}
+  function openP(){panel.classList.add("open");launch.style.display="none";if(!greeted){greeted=true;add("Hi &mdash; I&rsquo;m the PlexEdge lot concierge. Ask me what your lot could become, tear-down vs conversion, cost, or financing, and I&rsquo;ll give you a straight read.","bot");}setTimeout(function(){input.focus();},60);}
+  function closeP(){panel.classList.remove("open");launch.style.display="";}
+  function addBook(){add("You can also book a free lot assessment any time &mdash; hit the <b>Get started</b> button on the page.","bot");}
+  function showForm(){
+    gated=true;
+    var f=document.createElement("form");f.className="cc-form";
+    f.innerHTML='<p>Happy to keep going &mdash; who am I talking to?</p>'+
+      '<input name="name" placeholder="Your name" required>'+
+      '<input name="email" type="email" placeholder="Email" required>'+
+      '<select name="intent"><option value="">I&rsquo;m interested in&hellip;</option><option>Buying / building a multiplex</option><option>Selling my property or lot</option><option>Just exploring</option></select>'+
+      '<button type="submit">Continue &rarr;</button>';
+    body.appendChild(f);body.scrollTop=body.scrollHeight;
+    f.addEventListener("submit",function(e){
+      e.preventDefault();
+      var fd=new FormData(f),nm=fd.get("name");
+      fd.append("_subject","PlexEdge Lot Concierge lead");fd.append("source","Lot Concierge chat");fd.append("transcript",transcript());
+      fetch(FORMSPREE,{method:"POST",body:fd,headers:{Accept:"application/json"}}).then(function(){}).catch(function(){});
+      f.remove();captured=true;gated=false;
+      add("Thanks, "+esc(nm)+" &mdash; I&rsquo;ll pass this to Taran and he&rsquo;ll follow up.","bot");
+      if(pendingQ){var q=pendingQ;pendingQ=null;var ty=add("&hellip;","bot");reply(q).then(function(a){ty.innerHTML=a;addBook();});}
+      else{addBook();}
+    });
+  }
+  function doSend(){
+    var t=input.value.trim();if(!t||gated)return;
+    if(answered>=FREE&&!captured){pendingQ=t;input.value="";add(esc(t),"user");showForm();return;}
+    add(esc(t),"user");input.value="";
+    var ty=add("&hellip;","bot");
+    reply(t).then(function(a){ty.innerHTML=a;answered++;body.scrollTop=body.scrollHeight;});
+  }
+  launch.addEventListener("click",openP);closeb.addEventListener("click",closeP);
+  sendb.addEventListener("click",doSend);
+  input.addEventListener("keydown",function(e){if(e.key==="Enter"){e.preventDefault();doSend();}});
+  if(/[?&]ccopen=1/.test(location.search))openP();
+})();
+</script>
+<!-- ================== /LOT CONCIERGE ==================== -->
 </body>
 </html>
