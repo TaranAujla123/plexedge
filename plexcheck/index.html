@@ -1,0 +1,372 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>PlexCheck — How Many Units Can Your Lot Hold? · PlexEdge</title>
+<meta name="description" content="Free 60-second check: see whether your lot could hold a multiplex under Ontario's new rules. For homeowners and buyers across the GTA, Hamilton, Kitchener-Waterloo — and elsewhere in Ontario through trusted local partners." />
+<meta name="theme-color" content="#2D2D2D" />
+<link rel="canonical" href="https://plexedge.ca/plexcheck/" />
+<meta property="og:title" content="PlexCheck — how many units can your lot hold?" />
+<meta property="og:description" content="Answer four quick questions and see what Ontario's new multiplex rules could allow on your lot. Free, from a licensed team across the GTA, Hamilton, Kitchener-Waterloo." />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="PlexEdge" />
+<meta property="og:url" content="https://plexedge.ca/plexcheck/" />
+<meta property="og:image" content="https://plexedge.ca/og-image.png" />
+<meta name="robots" content="index, follow" />
+<link rel="icon" href="/favicon.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,500;0,600;0,700;1,600;1,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --paper:#F9F8F6; --wash:#E2E6DD;
+    --lead:#2D2D2D; --lead2:#262626; --lead3:#1f1f1f;
+    --sage:#6B7F5C; --sage-d:#4F6B5A; --sage-lt:#9CBB7E;
+    --ink:#2D2D2D; --muted:#616161; --line:#E0DCD3; --surface:#fff;
+    --disp:'Instrument Sans',sans-serif; --body:'Inter',sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--body),-apple-system,'Segoe UI',sans-serif;color:var(--ink);background:var(--paper);line-height:1.6;-webkit-font-smoothing:antialiased}
+  .em{font-family:var(--disp);font-style:italic;font-weight:600;color:var(--sage-lt)}
+  a{color:inherit}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 22px}
+
+  /* nav (light — hosts the PlexEdge lockup) */
+  .nav{background:var(--paper);border-bottom:1px solid var(--line)}
+  .nav .wrap{display:flex;align-items:center;justify-content:space-between;height:72px}
+  .nav .ph{font-size:14px;color:var(--muted);font-weight:500;text-decoration:none}
+  .nav .ph b{color:var(--lead)}
+
+  /* PlexEdge logo lockup */
+  .logo{display:flex;align-items:center;gap:11px;font-family:var(--disp);font-weight:700;font-size:1.3rem;letter-spacing:.005em;color:var(--lead);text-decoration:none;line-height:1}
+  .logo .wm-col{display:flex;flex-direction:column;gap:3px;line-height:1}
+  .logo .wm-line{display:block;width:26px;height:2px;background:var(--sage)}
+  .logo .tag{font-family:var(--disp);font-size:.62rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+  .logo .mark{align-self:stretch;box-sizing:border-box;width:34px;background:var(--lead);display:flex;flex-direction:column;justify-content:center;gap:4px;padding:7px}
+  .logo .mark i{display:block;height:3px;background:var(--sage-lt);transform-origin:left center}
+  .logo b{color:var(--sage);font-weight:700}
+  .logo .e3{width:.55em;height:.72em;margin-left:.07em;overflow:visible}
+  .logo .e3 rect{fill:var(--sage);transform-origin:left center}
+
+  .hero{background:linear-gradient(160deg,var(--lead),var(--lead2) 60%,var(--lead3));color:#fff;padding:52px 0 44px;position:relative;overflow:hidden;text-align:center}
+  .hero:after{content:"";position:absolute;inset:0;background:radial-gradient(60% 60% at 50% 0%,rgba(107,127,92,.22),transparent 70%);pointer-events:none}
+  .hero .wrap{position:relative;z-index:1}
+  .eyebrow{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--sage-lt);font-weight:700;margin-bottom:14px;font-family:var(--disp)}
+  h1{font-family:var(--disp);font-weight:700;font-size:clamp(28px,4.4vw,44px);line-height:1.08;letter-spacing:-.02em;max-width:16ch;margin:0 auto}
+  .hero p.lede{color:#d8dcd4;font-size:17.5px;margin:16px auto 0;max-width:52ch}
+
+  .toolwrap{margin:-30px 0 0;position:relative;z-index:3;padding-bottom:56px}
+  .tool{background:var(--surface);border:1px solid var(--line);border-radius:0;box-shadow:0 22px 60px rgba(20,22,18,.14);max-width:660px;margin:0 auto;padding:30px 32px 28px;color:var(--ink)}
+  .tool h2{font-family:var(--disp);font-weight:700;font-size:19px;color:var(--lead)}
+  .tool .step{font-size:12.5px;color:var(--sage-d);font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:4px;font-family:var(--disp)}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px}
+  .field{margin-bottom:4px}
+  .field label{display:block;font-size:12px;font-weight:600;color:var(--lead);margin-bottom:5px;font-family:var(--disp)}
+  .field input,.field select{width:100%;padding:12px 13px;border:1px solid var(--line);border-radius:0;font-family:inherit;font-size:15px;color:var(--ink);background:#fdfcfa}
+  .field input:focus,.field select:focus{outline:none;border-color:var(--sage);box-shadow:0 0 0 3px rgba(107,127,92,.18)}
+  .lane{margin-top:12px}
+  .lane .opts{display:flex;gap:10px;margin-top:6px}
+  .lane .opt{flex:1;border:1px solid var(--line);border-radius:0;padding:11px;text-align:center;font-size:14px;font-weight:600;color:var(--lead);cursor:pointer;background:#fdfcfa;transition:.12s;font-family:var(--disp)}
+  .lane .opt.sel{border-color:var(--sage);background:rgba(107,127,92,.12)}
+  .btn{width:100%;margin-top:18px;background:var(--lead);color:#fff;border:none;border-radius:0;padding:15px 18px;font-family:var(--disp);font-weight:600;font-size:15.5px;cursor:pointer;transition:background .15s,transform .05s}
+  .btn:hover{background:var(--sage-d)}
+  .btn:active{transform:translateY(1px)}
+  .btn.gold{background:var(--sage);color:#fff}
+  .btn.gold:hover{background:var(--sage-d)}
+  .btn[disabled]{opacity:.6;cursor:default}
+  .err{display:none;color:#a23b3b;font-size:13px;margin-top:10px;text-align:center}
+  .fineprint{font-size:11.5px;color:var(--muted);margin-top:12px;line-height:1.5;text-align:center}
+
+  /* teaser + gate + result */
+  .stage{display:none}
+  .teaser{background:linear-gradient(180deg,#eef2ea,#e2e6dd);border:1px solid #cdd7c4;border-radius:0;padding:20px 22px;text-align:center;margin-bottom:18px}
+  .teaser .badge{display:inline-flex;align-items:center;gap:7px;background:var(--sage);color:#fff;font-size:12px;font-weight:700;letter-spacing:.04em;padding:5px 12px;border-radius:0;text-transform:uppercase;font-family:var(--disp)}
+  .teaser.soft{background:linear-gradient(180deg,#f3f0ea,#e9e3d8);border-color:var(--line)}
+  .teaser .badge.soft{background:var(--sage-d);color:#fff}
+  .teaser h3{font-family:var(--disp);font-weight:700;font-size:19px;color:var(--lead);margin:12px 0 6px}
+  .teaser p{font-size:14.5px;color:#414a3d;max-width:44ch;margin:0 auto}
+  .result{text-align:left}
+  .result .big{font-family:var(--disp);font-weight:700;color:var(--lead);font-size:30px;line-height:1.1;margin:2px 0 4px}
+  .result .big span{color:var(--sage)}
+  .result .play{font-size:15px;color:#414a3d;margin:10px 0 4px}
+  .result .play b{color:var(--lead)}
+  .result .note{font-size:13.5px;color:var(--muted);margin-top:12px;line-height:1.5}
+  .result .cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+  .result .cta a{flex:1;min-width:180px;text-align:center;text-decoration:none;font-family:var(--disp);font-weight:600;font-size:14.5px;padding:13px 16px;border-radius:0}
+  .result .cta .book{background:var(--lead);color:#fff}
+  .result .cta .guide{background:var(--sage);color:#fff}
+
+  /* strip */
+  section.body{padding:10px 0 56px}
+  .strip{background:var(--lead);color:#e7e9e3;border-radius:0;padding:30px 34px;display:grid;grid-template-columns:1fr;gap:8px}
+  .strip h3{font-family:var(--disp);font-weight:600;font-size:20px;color:#fff}
+  .strip p{color:#c3c9bd;font-size:14.5px;max-width:70ch}
+  .strip b{color:var(--sage-lt)}
+
+  footer{background:var(--paper);border-top:1px solid var(--line);color:var(--muted);padding:40px 0 48px;font-size:12px;line-height:1.7}
+  footer .logo{margin-bottom:16px;font-size:1.15rem}
+  footer .logo .mark{width:30px}
+  footer .sig{color:var(--lead);margin-bottom:14px}
+  footer .sig b{color:var(--lead)}
+  footer .disc{font-size:11px;color:var(--muted);max-width:80ch}
+  footer .disc b{color:var(--lead)}
+
+  @media(max-width:560px){
+    .grid2{grid-template-columns:1fr}
+    .nav .ph{display:none}
+    .tool{padding:24px 20px}
+  }
+</style>
+    <!-- Meta Pixel (26914854838125099) -->
+    <script>
+      (function(){
+        if(location.hostname==='localhost'||location.hostname==='127.0.0.1')return;
+        !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init','26914854838125099');fbq('track','PageView');
+      })();
+    </script>
+    <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=26914854838125099&ev=PageView&noscript=1" alt=""/></noscript>
+    <!-- End Meta Pixel -->
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="wrap">
+      <a href="/" class="logo" aria-label="PlexEdge — home"><span class="mark" aria-hidden="true"><i></i><i></i><i></i></span><span class="wm-col"><span aria-hidden="true">PLEX<b>EDG<svg class="e3" viewBox="0 0 100 128" aria-hidden="true"><rect x="0" y="0" width="100" height="24"/><rect x="0" y="52" width="100" height="24"/><rect x="0" y="104" width="100" height="24"/></svg></b></span><span class="wm-line" aria-hidden="true"></span><span class="tag">Multiplex. Simplified.</span></span></a>
+      <a class="ph" href="tel:+13656457332">Taran Aujla · <b>(365)&nbsp;645-7332</b></a>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="wrap">
+      <div class="eyebrow">Free 60-second check</div>
+      <h1>How many units can <span class="em">your lot hold?</span></h1>
+      <p class="lede">Ontario's rules changed. Many lots that used to allow one home can now hold a multiplex. Answer four quick questions and find out where yours stands.</p>
+    </div>
+  </header>
+
+  <div class="toolwrap">
+    <div class="wrap">
+      <div class="tool">
+
+        <!-- STEP 1: inputs -->
+        <div class="stage" id="s1" style="display:block">
+          <div class="step">Your lot</div>
+          <h2>Tell us about the property.</h2>
+          <div class="grid2">
+            <div class="field">
+              <label for="city">City / area</label>
+              <select id="city">
+                <option value="" disabled selected>Select…</option>
+                <option value="toronto">Toronto</option>
+                <option value="peel">Mississauga / Peel</option>
+                <option value="brampton">Brampton</option>
+                <option value="york">Vaughan / York</option>
+                <option value="durham">Durham (Oshawa, Pickering…)</option>
+                <option value="hamilton">Hamilton</option>
+                <option value="kw">Kitchener-Waterloo / Cambridge</option>
+                <option value="other">Elsewhere in Ontario</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="width">Lot width (ft)</label>
+              <input id="width" type="number" inputmode="numeric" min="10" max="500" placeholder="e.g. 40" />
+            </div>
+            <div class="field">
+              <label for="depth">Lot depth (ft)</label>
+              <input id="depth" type="number" inputmode="numeric" min="30" max="1000" placeholder="e.g. 120" />
+            </div>
+            <div class="field lane">
+              <label>Backs onto a lane?</label>
+              <div class="opts">
+                <div class="opt" data-lane="yes">Yes</div>
+                <div class="opt" data-lane="no">No</div>
+                <div class="opt sel" data-lane="unsure">Not sure</div>
+              </div>
+            </div>
+          </div>
+          <button class="btn" id="checkbtn">Check my lot</button>
+          <div class="err" id="err1">Please choose a city and enter your lot width and depth.</div>
+          <p class="fineprint">A quick directional estimate — the exact number is confirmed with a site-specific zoning review.</p>
+        </div>
+
+        <!-- STEP 2: teaser + email gate -->
+        <div class="stage" id="s2">
+          <div class="teaser" id="teaserbox">
+            <span class="badge" id="teaserbadge">✓ Good news</span>
+            <h3 id="teaserhead">Your lot very likely qualifies for a multiplex.</h3>
+            <p id="teasersub">Ontario's new rules work in your favour here. Enter your email and we'll show you how many units it could hold, the play that fits, and what it means for you.</p>
+          </div>
+          <form id="gate" action="https://formspree.io/f/xkoezqwa" method="POST">
+            <div class="grid2">
+              <div class="field">
+                <label for="name">First name</label>
+                <input id="name" name="name" type="text" autocomplete="given-name" required placeholder="First name" />
+              </div>
+              <div class="field">
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" autocomplete="email" required placeholder="you@email.com" />
+              </div>
+            </div>
+            <input type="hidden" name="magnet" value="PLEXCHECK · Lot Unit Estimate" />
+            <input type="hidden" name="_subject" value="New PlexCheck lead — lot unit estimate" />
+            <input type="hidden" id="h_city" name="city" value="" />
+            <input type="hidden" id="h_lot" name="lot" value="" />
+            <input type="hidden" id="h_lane" name="backs_onto_lane" value="" />
+            <input type="hidden" id="h_estimate" name="estimate" value="" />
+            <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
+            <button class="btn gold" type="submit" id="gatebtn">Show my result</button>
+            <div class="err" id="err2">Something went wrong. Please try again, or text Taran at (365) 645-7332.</div>
+          </form>
+          <p class="fineprint">Educational estimate only — not legal, planning, or financial advice. We'll never share your details.</p>
+        </div>
+
+        <!-- STEP 3: full result -->
+        <div class="stage" id="s3">
+          <div class="step">Your estimate</div>
+          <div class="result">
+            <div class="big" id="rangeline">Likely <span id="rangeval">3 to 4</span> units</div>
+            <div class="play" id="playline"></div>
+            <div class="note" id="noteline"></div>
+            <div class="cta">
+              <a class="book" href="tel:+13656457332">Book my free 15-min review</a>
+              <a class="guide" id="guidelink" href="/downloads/resolve-your-home-is-worth-more.pdf" download>Download the full guide</a>
+            </div>
+          </div>
+          <p class="fineprint">This is a directional estimate based on what you entered. Your exact unit count depends on your parcel's zoning and a site-specific review — that's what we confirm on the call.</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <section class="body">
+    <div class="wrap">
+      <div class="strip">
+        <h3>Why this is more than a calculator</h3>
+        <p>A tool can tell you roughly what's possible. Turning it into reality takes a plan and a builder. <b>We bring the strategy, the research, and the realtor side</b> — finding, valuing, listing, or buying the right lot. <b>Our construction partner (15+ years, 200+ units)</b> brings the permits, the build, and a real quote. Most agents don't know where to start. You'd get both, from one licensed team.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      <a class="logo" href="/" aria-label="PlexEdge — home"><span class="mark" aria-hidden="true"><i></i><i></i><i></i></span><span aria-hidden="true">PLEX<b>EDG<svg class="e3" viewBox="0 0 100 128" aria-hidden="true"><rect x="0" y="0" width="100" height="24"/><rect x="0" y="52" width="100" height="24"/><rect x="0" y="104" width="100" height="24"/></svg></b></span></a>
+      <div class="sig"><b>PlexEdge</b> is a trade name of <b>Taran Aujla</b>, Salesperson · HomeLife G1 Realty Inc., Brokerage · Independently Owned &amp; Operated · RECO Reg.&nbsp;No.&nbsp;6024721 · (365)&nbsp;645-7332 · plexedge.ca</div>
+      <div class="disc"><b>PlexEdge is not itself a brokerage, a developer building on its own account, or an investment vehicle — real estate services are provided by Taran Aujla, Salesperson, through HomeLife G1 Realty Inc., Brokerage.</b> PlexCheck is a free educational estimate for Ontario property owners and buyers and is not legal, planning, mortgage, tax, or financial advice, and not an offer of those services. Unit counts are illustrative and conditional: unit permissions depend on the specific parcel and current municipal by-laws and are subject to zoning, permits and a site-specific review — figures must be verified per lot before you rely on them. Financing programs and eligibility are confirmed only by a CMHC-approved lender. No outcome, value, or approval is guaranteed. Nothing here is a solicitation of any property currently listed for sale or of any owner already under a representation agreement with another brokerage.</div>
+    </div>
+  </footer>
+
+<script>
+(function(){
+  var lane='unsure';
+  document.querySelectorAll('.lane .opt').forEach(function(o){
+    o.addEventListener('click',function(){
+      document.querySelectorAll('.lane .opt').forEach(function(x){x.classList.remove('sel');});
+      o.classList.add('sel'); lane=o.getAttribute('data-lane');
+    });
+  });
+
+  var CITY={toronto:'Toronto',peel:'Mississauga / Peel',brampton:'Brampton',york:'Vaughan / York',durham:'Durham',hamilton:'Hamilton',kw:'Kitchener-Waterloo',other:'Ontario'};
+
+  // Coarse, directional heuristic only. Province floor = 3 units on most
+  // serviced urban lots (Bill 23). Deliberately rough — the precise,
+  // parcel-specific answer is human-delivered on the call.
+  //   strong  = a known market + a workable lot → confident "qualifies"
+  //   !strong = tiny lot or outside the core → honest "worth a closer look"
+  function estimate(city,w,d){
+    var roomy=(w>=40&&d>=100), big=(w>=50&&d>=120),
+        tight=(w>0&&w<25), narrow=(w>0&&w<30);
+    var low=3, high=3, strong=true, laneBonus=false;
+
+    if(city==='toronto'){ high=4; }
+    else if(city==='hamilton'||city==='ottawa'||city==='kw'||city==='peel'||city==='york'){ high=4; }
+    else if(city==='brampton'||city==='durham'){ high= roomy?4:3; }
+    else { high=3; strong=false; }                 // 'other' — elsewhere in Ontario
+
+    // A rear lane OR a big lot supports a garden/laneway suite = one more unit,
+    // but only where the base already reaches a 4-unit multiplex.
+    if((lane==='yes'||big) && high>=4){ high+=1; laneBonus=true; }
+
+    // Small lots temper the estimate and soften the claim.
+    if(tight){ low=2; high=3; strong=false; laneBonus=false; }
+    else if(narrow){ high=Math.min(high,3); laneBonus=false; }
+
+    if(high<low) high=low;
+    return {low:low, high:high, strong:strong, laneBonus:laneBonus, roomy:roomy, tight:tight};
+  }
+  function playText(high){
+    if(high>=5) return 'That opens a serious investor play — or live in one unit and let the rest carry the mortgage.';
+    if(high>=4) return 'Live in one unit and let the others carry the mortgage, or hold it purely for income.';
+    return 'A clean income play — a triplex you live in and rent, or a straightforward rental.';
+  }
+
+  function show(id){ ['s1','s2','s3'].forEach(function(s){ document.getElementById(s).style.display=(s===id)?'block':'none'; }); }
+
+  var result=null, inputs=null;
+  document.getElementById('checkbtn').addEventListener('click',function(){
+    var city=document.getElementById('city').value;
+    var w=parseFloat(document.getElementById('width').value);
+    var d=parseFloat(document.getElementById('depth').value);
+    var err=document.getElementById('err1');
+    if(!city || !(w>0) || !(d>0)){ err.style.display='block'; return; }
+    err.style.display='none';
+    result=estimate(city,w,d);
+    inputs={city:city,w:w,d:d,lane:lane};
+    // teaser only — no number revealed pre-email. Tone tracks confidence:
+    // strong markets/lots get the green "qualifies"; weak ones get an
+    // honest amber "worth a closer look" (still captured, never a dead end).
+    var badge=document.getElementById('teaserbadge'),
+        head=document.getElementById('teaserhead'),
+        sub=document.getElementById('teasersub'),
+        box=document.getElementById('teaserbox');
+    if(result.strong){
+      box.classList.remove('soft'); badge.classList.remove('soft');
+      badge.textContent='✓ Good news';
+      head.textContent = result.high>=4
+        ? 'Your lot very likely qualifies for a multiplex.'
+        : 'Your lot very likely qualifies — a triplex looks within reach.';
+      sub.textContent="Ontario's new rules work in your favour here. Enter your email and we'll show you how many units it could hold, the play that fits, and what it means for you.";
+    } else {
+      box.classList.add('soft'); badge.classList.add('soft');
+      badge.textContent='Worth a closer look';
+      head.textContent='Your lot may qualify — it depends on the parcel.';
+      sub.textContent="This one takes a proper read of the zoning. Enter your email and we'll show you our honest take, the play that could fit, and how to confirm it.";
+    }
+    show('s2');
+    window.scrollTo({top:0,behavior:'smooth'});
+  });
+
+  var gate=document.getElementById('gate');
+  gate.addEventListener('submit',function(e){
+    e.preventDefault();
+    var err=document.getElementById('err2'), btn=document.getElementById('gatebtn');
+    var rng = result.low===result.high ? (result.low+' units') : (result.low+' to '+result.high+' units');
+    document.getElementById('h_city').value=CITY[inputs.city]||inputs.city;
+    document.getElementById('h_lot').value=inputs.w+'ft x '+inputs.d+'ft';
+    document.getElementById('h_lane').value=inputs.lane;
+    document.getElementById('h_estimate').value='likely '+rng;
+    btn.disabled=true; btn.textContent='One sec…'; err.style.display='none';
+    fetch(gate.action,{method:'POST',body:new FormData(gate),headers:{'Accept':'application/json'}})
+    .then(function(r){
+      if(!r.ok) throw new Error('bad');
+      if(window.fbq)fbq('track','Lead',{content_name:'PlexCheck',content_category:'Multiplex'});
+      document.getElementById('rangeval').textContent=rng.replace(' units','');
+      document.getElementById('playline').innerHTML=playText(result.high);
+      var note='In '+(CITY[inputs.city]||'your area')+', on a '+inputs.w+' × '+inputs.d+' ft lot, this is what the new rules point to.';
+      if(inputs.city==='hamilton') note+=' Some Hamilton zones allow more — worth confirming your parcel.';
+      if(result.laneBonus) note+=' A rear lane or a deep lot opens room for a garden or laneway suite — that’s where the extra unit comes from.';
+      if(inputs.city==='other') note+=" You're outside our core markets, but not a dead end — we work with trusted local partners across Ontario, so you'll still get a real plan.";
+      note+=' The exact number and the financing depend on a site-specific review, which we do free on the call.';
+      document.getElementById('noteline').textContent=note;
+      show('s3');
+      window.scrollTo({top:0,behavior:'smooth'});
+    })
+    .catch(function(){ err.style.display='block'; btn.disabled=false; btn.textContent='Show my result'; });
+  });
+})();
+</script>
+</body>
+</html>

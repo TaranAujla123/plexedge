@@ -511,6 +511,16 @@
   .wcard h3{font-size:1.14rem;margin-bottom:10px;color:var(--lead)}
   .wcard p{color:var(--muted);font-size:1rem;line-height:1.6}
   .wcard p b{color:var(--lead)}
+  /* where to start — free tools & guides */
+  #start .start-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:8px}
+  @media(max-width:820px){#start .start-grid{grid-template-columns:1fr}}
+  .scard{display:block;border:1px solid var(--line);background:#fff;padding:26px 26px 28px;text-decoration:none;transition:transform .22s ease,box-shadow .22s ease}
+  @media(prefers-reduced-motion:no-preference){.scard:hover{transform:translateY(-5px);box-shadow:0 16px 34px -16px rgba(45,45,45,.26)}}
+  .scard .stag{display:inline-block;font-family:var(--disp);font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#fff;background:var(--sage);padding:5px 11px;margin-bottom:16px}
+  .scard h3{font-size:1.24rem;line-height:1.16;margin-bottom:10px;color:var(--lead)}
+  .scard p{color:var(--muted);font-size:.98rem;line-height:1.55;margin-bottom:16px}
+  .scard .slink{font-family:var(--disp);font-weight:600;font-size:.9rem;color:var(--sage)}
+  .scard:hover .slink{color:var(--copper)}
 </style>
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="alternate icon" href="/favicon.ico">
@@ -634,6 +644,35 @@
     </div>
   </div>
 </header>
+
+<section id="start">
+  <div class="wrap">
+    <div class="shead">
+      <div class="idx"><span class="mono">Where to start</span></div>
+      <h2>Start with the numbers &mdash; free.</h2>
+    </div>
+    <div class="start-grid">
+      <a class="scard" href="/plexcheck/">
+        <span class="stag">Free Tool</span>
+        <h3>How many units can your lot hold?</h3>
+        <p>A free 60-second check. Enter your address and see whether your lot could support a multiplex.</p>
+        <span class="slink">Run PlexCheck &rarr;</span>
+      </a>
+      <a class="scard" href="/lot-value/">
+        <span class="stag">Homeowners</span>
+        <h3>Your lot may be worth more than your house.</h3>
+        <p>The value most owners are never shown &mdash; and what it could mean before you list.</p>
+        <span class="slink">Get the seller guide &rarr;</span>
+      </a>
+      <a class="scard" href="/pays-for-itself/">
+        <span class="stag">Buyers &amp; Investors</span>
+        <h3>Buy real estate that pays for itself.</h3>
+        <p>A multiplex where the tenants help carry the mortgage &mdash; for less down than most assume.</p>
+        <span class="slink">Get the buyer guide &rarr;</span>
+      </a>
+    </div>
+  </div>
+</section>
 
 <section id="difference">
   <div class="wrap">
