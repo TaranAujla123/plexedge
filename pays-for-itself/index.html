@@ -66,8 +66,8 @@
   .logo .wm-col{display:flex;flex-direction:column;gap:3px;line-height:1}
   .logo .wm-line{display:block;width:26px;height:2px;background:var(--sage)}
   .logo .tag{font-family:var(--disp);font-size:.62rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
-  .logo .mark{align-self:stretch;box-sizing:border-box;width:34px;background:var(--lead);display:flex;flex-direction:column;justify-content:center;gap:4px;padding:7px}
-  .logo .mark i{display:block;height:3px;background:var(--sage-lt);transform-origin:left center}
+  .logo .mark{box-sizing:border-box;width:34px;height:34px;border:1.5px solid var(--lead);display:flex;flex-direction:column;justify-content:center;gap:4px;padding:6px}
+  .logo .mark i{display:block;height:3px;background:var(--sage);transform-origin:left center}
   .logo b{color:var(--sage);font-weight:700}
   .logo .e3{width:.55em;height:.72em;margin-left:.07em;overflow:visible}
   .logo .e3 rect{fill:var(--sage);transform-origin:left center}
@@ -112,7 +112,7 @@
   .strip a.jump{white-space:nowrap;background:var(--sage);color:#fff;font-family:var(--disp);font-weight:600;text-decoration:none;padding:13px 24px;border-radius:0;font-size:14.5px}
   footer{background:var(--paper);border-top:1px solid var(--line);color:var(--muted);padding:40px 0 48px;font-size:12px;line-height:1.7;margin-top:8px}
   footer .logo{margin-bottom:16px;font-size:1.15rem}
-  footer .logo .mark{width:30px}
+  footer .logo .mark{width:30px;height:30px}
   footer .sig{color:var(--lead);margin-bottom:14px}
   footer .sig b{color:var(--lead)}
   footer .disc{font-size:11px;color:var(--muted);max-width:78ch}
@@ -140,7 +140,7 @@
 
   <nav class="nav" id="nav">
     <div class="wrap">
-      <a href="/" class="logo" aria-label="PlexEdge — home"><span class="mark" aria-hidden="true"><i></i><i></i><i></i></span><span class="wm-col"><span aria-hidden="true">PLEX<b>EDG<svg class="e3" viewBox="0 0 100 128" aria-hidden="true"><rect x="0" y="0" width="100" height="24"/><rect x="0" y="52" width="100" height="24"/><rect x="0" y="104" width="100" height="24"/></svg></b></span><span class="wm-line" aria-hidden="true"></span><span class="tag">Multiplex. Simplified.</span></span></a>
+      <a href="/" class="logo" aria-label="PlexEdge — home"><span class="mark" aria-hidden="true"><i></i><i></i><i></i></span><span aria-hidden="true">PLEX<b>EDG<svg class="e3" viewBox="0 0 100 128" aria-hidden="true"><rect x="0" y="0" width="100" height="24"/><rect x="0" y="52" width="100" height="24"/><rect x="0" y="104" width="100" height="24"/></svg></b></span></a>
       <div class="nlinks" id="nlinks">
         <a href="/#difference">Why</a>
         <a href="/#services">What</a>
