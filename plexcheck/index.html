@@ -127,6 +127,29 @@
   .strip p{color:#c3c9bd;font-size:14.5px;max-width:70ch}
   .strip b{color:var(--sage-lt)}
 
+  /* feasibility upsell (paid next step after the free check) */
+  .feas{margin:6px 0 26px}
+  .feas .step{color:var(--sage-d);font-size:12.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-family:var(--disp)}
+  .feas-h{font-family:var(--disp);font-weight:700;font-size:clamp(23px,3.4vw,32px);line-height:1.1;letter-spacing:-.02em;color:var(--lead);margin-top:6px}
+  .feas-lede{color:var(--muted);font-size:16px;max-width:62ch;margin-top:12px}
+  .feas-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:16px;margin-top:22px}
+  .feas-card{background:var(--surface);border:1px solid var(--line);padding:22px 24px}
+  .feas-card h4{font-family:var(--disp);font-weight:700;font-size:12.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--sage-d);margin-bottom:14px}
+  .feas-card ul{list-style:none;display:flex;flex-direction:column;gap:11px}
+  .feas-card li{font-size:14.5px;color:var(--ink);padding-left:22px;position:relative;line-height:1.45}
+  .feas-card li:before{content:"\2192";position:absolute;left:0;color:var(--sage);font-weight:700}
+  .feas-card.price{background:var(--lead);color:#fff;border-color:var(--lead);display:flex;flex-direction:column;justify-content:center}
+  .feas-price{font-family:var(--disp);font-weight:700;font-size:36px;color:#fff;line-height:1}
+  .feas-price span{font-size:15px;color:var(--sage-lt);font-weight:600;letter-spacing:.01em}
+  .feas-card.price p{font-size:13.5px;color:#c3c9bd;margin-top:13px;line-height:1.55}
+  .feas-card.price .credit{color:#e7e9e3}
+  .feas-card.price .credit b{color:var(--sage-lt)}
+  .feas-cta{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-top:22px}
+  .feas-cta .book{font-family:var(--disp);font-weight:600;font-size:15px;padding:14px 24px;background:var(--sage);color:#fff;text-decoration:none}
+  .feas-cta .book:hover{background:var(--sage-d)}
+  .feas-note{font-size:13px;color:var(--muted);max-width:46ch;line-height:1.5}
+  @media(max-width:640px){.feas-grid{grid-template-columns:1fr}}
+
   footer{background:var(--paper);border-top:1px solid var(--line);color:var(--muted);padding:40px 0 48px;font-size:12px;line-height:1.7}
   footer .logo{margin-bottom:16px;font-size:1.15rem}
   footer .logo .mark{width:30px;height:30px}
@@ -278,6 +301,35 @@
 
   <section class="body">
     <div class="wrap">
+
+      <div class="feas">
+        <div class="step">The next step</div>
+        <h2 class="feas-h">The check shows what <em class="em">fits</em>. A study shows if it <em class="em">pays</em>.</h2>
+        <p class="feas-lede">PlexCheck gives you a directional read in a minute. Before you buy, build, or list, a feasibility study confirms exactly what your lot can hold and whether the numbers actually work &mdash; so you move on the full picture, not a guess.</p>
+
+        <div class="feas-grid">
+          <div class="feas-card">
+            <h4>What the study gives you</h4>
+            <ul>
+              <li>Zoning and massing &mdash; the real unit count, and the layout that maximizes it</li>
+              <li>A hard and soft cost budget from an experienced multiplex builder</li>
+              <li>A clear go / no-go on the numbers before you spend a dollar building</li>
+              <li>A 3D concept of what your lot becomes</li>
+            </ul>
+          </div>
+          <div class="feas-card price">
+            <div class="feas-price">$1,500 <span>+ HST</span></div>
+            <p>One coordinated study &mdash; the design, the costing, and the realtor read under one roof. Assembled separately, the same work runs several thousand dollars and weeks of back-and-forth.</p>
+            <p class="credit"><b>Credited back in full at closing</b> when PlexEdge represents you on the purchase or sale.</p>
+          </div>
+        </div>
+
+        <div class="feas-cta">
+          <a class="book" href="tel:+13656457332">Start with a free 15-minute review</a>
+          <span class="feas-note">We look at your lot first, free. If a project doesn&rsquo;t make sense, we&rsquo;ll tell you before you spend anything.</span>
+        </div>
+      </div>
+
       <div class="strip">
         <h3>Why this is more than a calculator</h3>
         <p>A tool can tell you roughly what's possible. Turning it into reality takes a plan and a builder. <b>We bring the strategy, the research, and the realtor side</b> — finding, valuing, listing, or buying the right lot. <b>Our construction partner (15+ years, 200+ units)</b> brings the permits, the build, and a real quote. Most agents don't know where to start. You'd get both, from one licensed team.</p>
