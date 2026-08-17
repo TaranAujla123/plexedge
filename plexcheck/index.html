@@ -364,25 +364,29 @@
   //   strong  = a known market + a workable lot → confident "qualifies"
   //   !strong = tiny lot or outside the core → honest "worth a closer look"
   function estimate(city,w,d){
+    var area=(w>0&&d>0)?w*d:0;
     var roomy=(w>=40&&d>=100), big=(w>=50&&d>=120),
-        tight=(w>0&&w<25), narrow=(w>0&&w<30);
+        small=(area>0&&(area<1500||w<16));   // genuinely tight built form only
     var low=3, high=3, strong=true, laneBonus=false;
 
-    if(city==='toronto'){ high=4; }
-    else if(city==='hamilton'||city==='ottawa'||city==='kw'||city==='peel'||city==='york'){ high=4; }
-    else if(city==='brampton'||city==='durham'){ high= roomy?4:3; }
-    else { high=3; strong=false; }                 // 'other' — elsewhere in Ontario
+    // As-of-right unit permission by market. Toronto and most large-city zones
+    // now allow up to four units on ordinary lots; a narrow width makes the
+    // built form tighter but does NOT lower the permitted count.
+    if(city==='toronto'){ low=3; high=4; }
+    else if(city==='hamilton'||city==='ottawa'||city==='kw'||city==='peel'||city==='york'){ low=3; high=4; }
+    else if(city==='brampton'||city==='durham'){ low=3; high= roomy?4:3; }
+    else { low=3; high=3; strong=false; }                 // 'other' — elsewhere in Ontario
 
     // A rear lane OR a big lot supports a garden/laneway suite = one more unit,
     // but only where the base already reaches a 4-unit multiplex.
     if((lane==='yes'||big) && high>=4){ high+=1; laneBonus=true; }
 
-    // Small lots temper the estimate and soften the claim.
-    if(tight){ low=2; high=3; strong=false; laneBonus=false; }
-    else if(narrow){ high=Math.min(high,3); laneBonus=false; }
+    // A genuinely tiny lot softens the confidence and widens the floor, but
+    // keeps the as-of-right ceiling — exact built form is a site-review question.
+    if(small){ strong=false; laneBonus=false; low=Math.max(2,low-1); }
 
     if(high<low) high=low;
-    return {low:low, high:high, strong:strong, laneBonus:laneBonus, roomy:roomy, tight:tight};
+    return {low:low, high:high, strong:strong, laneBonus:laneBonus, roomy:roomy, tight:small};
   }
   function playText(high){
     if(high>=5) return 'That opens a serious investor play — or live in one unit and let the rest carry the mortgage.';
@@ -443,6 +447,7 @@
       document.getElementById('rangeval').textContent=rng.replace(' units','');
       document.getElementById('playline').innerHTML=playText(result.high);
       var note='In '+(CITY[inputs.city]||'your area')+', on a '+inputs.w+' × '+inputs.d+' ft lot, this is what the new rules point to.';
+      if(inputs.city==='toronto') note+=' Toronto now allows up to four units on most lots citywide, and up to six in some areas — the exact number and built form are confirmed on the call.';
       if(inputs.city==='hamilton') note+=' Some Hamilton zones allow more — worth confirming your parcel.';
       if(result.laneBonus) note+=' A rear lane or a deep lot opens room for a garden or laneway suite — that’s where the extra unit comes from.';
       if(inputs.city==='other') note+=" You're outside our core markets, but not a dead end — we work with trusted local partners across Ontario, so you'll still get a real plan.";
