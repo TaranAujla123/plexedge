@@ -527,16 +527,20 @@
   .scard:hover .slink{color:var(--copper)}
 
   /* ============ Phase 1: charcoal hero (homepage only) ============ */
+  /* --hero-green: a brighter, fresher sage that pops on charcoal (base --sage
+     stays muted for the light sections). */
   header.hero{
     background:
-      radial-gradient(120% 84% at 84% -8%, rgba(107,127,92,.22), transparent 56%),
+      radial-gradient(120% 84% at 84% -8%, rgba(152,183,124,.20), transparent 56%),
       linear-gradient(180deg,#24251f 0%, var(--lead) 52%, #26271f 100%);
   }
   .hero h1{color:var(--paper)}
-  .hero h1 em{color:var(--sage)}
-  .hero .sub{color:rgba(249,248,246,.74)}
-  .hero .btn.solid{background:var(--sage);color:#fff;border-color:var(--sage)}
-  .hero .btn.solid:hover{background:#7d9271;border-color:#7d9271}
+  .hero h1 em{color:#9EBC81}
+  .hero .ey{color:#9EBC81}
+  .hero .ey::before{background:#9EBC81}
+  .hero .sub{color:rgba(249,248,246,.75)}
+  .hero .btn.solid{background:#9EBC81;color:var(--lead);border-color:#9EBC81;font-weight:700}
+  .hero .btn.solid:hover{background:#b0cc95;border-color:#b0cc95;color:var(--lead)}
   .hero .btn.ghost{color:var(--paper);border-color:rgba(249,248,246,.42)}
   .hero .btn.ghost:hover{background:var(--paper);color:var(--lead)}
   .hero .pe-morph{box-shadow:0 26px 64px rgba(0,0,0,.38)}
@@ -551,11 +555,14 @@
   /* nav floats transparent over the dark hero at the top → go light; revert on scroll */
   nav{transition:background .25s,border-color .25s,box-shadow .25s,color .2s}
   nav:not(.scrolled):not(.menu-open) .nlinks a{color:var(--paper)}
-  nav:not(.scrolled):not(.menu-open) .nlinks a:hover{color:var(--sage)}
+  nav:not(.scrolled):not(.menu-open) .nlinks a:hover{color:#9EBC81}
   nav:not(.scrolled):not(.menu-open) .logo{color:var(--paper)}
-  nav:not(.scrolled):not(.menu-open) .logo .mark{border-color:rgba(249,248,246,.6)}
+  nav:not(.scrolled):not(.menu-open) .logo b{color:#9EBC81}
+  nav:not(.scrolled):not(.menu-open) .logo .mark{border-color:rgba(249,248,246,.62)}
+  nav:not(.scrolled):not(.menu-open) .logo .mark i{background:#9EBC81}
+  nav:not(.scrolled):not(.menu-open) .logo .e3 rect{fill:#9EBC81}
   nav:not(.scrolled):not(.menu-open) .nav-toggle i{background:var(--paper)}
-  nav:not(.scrolled):not(.menu-open) .btn.solid{background:var(--sage);color:#fff}
+  nav:not(.scrolled):not(.menu-open) .btn.solid{background:#9EBC81;color:var(--lead)}
 </style>
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="alternate icon" href="/favicon.ico">
