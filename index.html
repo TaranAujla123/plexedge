@@ -567,25 +567,16 @@
   nav:not(.scrolled):not(.menu-open) .nav-toggle i{background:var(--paper)}
   nav:not(.scrolled):not(.menu-open) .btn.solid{background:#9EBC81;color:var(--lead)}
 
-  /* ============ Phase 2: sage-green accent bands (What we do, Financing) ============ */
-  .sageband{background:#506A47;border-top:1px solid rgba(255,255,255,.10)}
-  .sageband .idx .mono{color:#d6e4c8}
-  .sageband h2{color:var(--paper)}
-  .sageband .kicker{color:rgba(249,248,246,.85)}
-  .sageband .shead .idx::after{background:rgba(255,255,255,.18)}
-  .sageband .shead h2::after,.sageband .feat .body h2::after{background:#c6d9b0}
-  .sageband .fin-close{color:var(--paper)}
-  .sageband .fin-close b{color:#fff}
-  .sageband .fin-dis{color:rgba(249,248,246,.62)}
-  .sageband .scrollcue a{color:rgba(249,248,246,.82)}
-  .sageband .scrollcue svg{stroke:rgba(249,248,246,.82)}
-  .sageband.grid-bg::before{
-    background-image:
-      linear-gradient(to right,rgba(255,255,255,.05) 1px,transparent 1px),
-      linear-gradient(to bottom,rgba(255,255,255,.05) 1px,transparent 1px),
-      linear-gradient(to right,rgba(255,255,255,.08) 1px,transparent 1px),
-      linear-gradient(to bottom,rgba(255,255,255,.08) 1px,transparent 1px);
-  }
+  /* ============ Phase 2: light sage accent bands (What we do, Financing) ============ */
+  /* Lighter green with the default charcoal heading — softer, keeps the paper feel. */
+  .sageband{background:#C6D6B4;border-top:1px solid var(--line)}
+  .sageband .idx .mono{color:var(--copper)}
+  .sageband .shead h2::after,.sageband .feat .body h2::after{background:var(--copper)}
+
+  /* dark bands (How it works, Two ways in) share the hero's bright green */
+  .darkband .idx .mono,.darkband .step .num,.darkband .door .lab{color:#9EBC81}
+  .darkband .lnk{color:#9EBC81;border-bottom-color:rgba(158,188,129,.55)}
+  .darkband .lnk:hover{color:#fff}
 </style>
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="alternate icon" href="/favicon.ico">
@@ -619,7 +610,7 @@
           <h1>The homes<br>hiding in<br><em>the lot.</em></h1>
           <p class="sub">Across the GTA, a single lot can now hold three or four homes &mdash; up to six in parts of Toronto. PlexEdge identifies the right properties, proves the potential with real design and numbers, and takes them from concept to transaction or build.</p>
           <div class="cta">
-            <a href="#contact" class="btn solid">Check a lot &rarr;</a>
+            <a href="/plexcheck/" class="btn solid">Check a lot &rarr;</a>
             <a href="#how" class="btn ghost">See how it works</a>
           </div>
       </div>
@@ -898,7 +889,7 @@
       <div class="step"><span class="num">03 &middot; POSITION</span><h3>Package &amp; position</h3><p>The opportunity priced on what it can become, marketed to the buyers who value it &mdash; investors, builders and live-in owners.</p></div>
       <div class="step"><span class="num">04 &middot; DELIVER</span><h3>Coordinate the build</h3><p>Design, permits and construction coordinated with our partners through to key handover. You have one point of contact.</p><a class="lnk" href="#value" style="display:inline-block;margin-top:14px">See what you get &rarr;</a></div>
     </div>
-    <div style="margin-top:40px"><a class="btn" style="background:var(--sage);color:#fff;border-color:var(--sage)" href="/plexcheck/">See what your lot could hold &rarr;</a></div>
+    <div style="margin-top:40px"><a class="btn" style="background:#9EBC81;color:var(--lead);border-color:#9EBC81" href="/plexcheck/">See what your lot could hold &rarr;</a></div>
   </div>
 </section>
 
