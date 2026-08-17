@@ -60,16 +60,19 @@
   .bar .ph:hover{color:var(--copper)}
 
   /* hero */
-  header.hero{padding:64px 0 74px;background:
-    radial-gradient(120% 78% at 88% 0%, rgba(107,127,92,.10), transparent 52%),
-    linear-gradient(180deg,#ECEEE7 0%,#F4F3EE 48%,var(--paper) 88%)}
+  header.hero{padding:64px 0 74px;color:#fff;background:
+    radial-gradient(60% 50% at 86% 4%, rgba(107,127,92,.24), transparent 70%),
+    linear-gradient(160deg,#2D2D2D,#262626 60%,#1f1f1f)}
   .hero .grid{display:grid;grid-template-columns:1.15fr .85fr;gap:52px;align-items:start}
-  .hero h1{font-size:clamp(2.3rem,4.6vw,3.5rem);margin-top:22px}
-  .hero h1 em{font-style:italic;color:var(--copper)}
-  .hero .sub{font-size:1.1rem;color:var(--muted);max-width:40em;margin-top:22px}
-  .hero .trust{display:flex;flex-wrap:wrap;gap:10px 26px;margin-top:26px;border-top:1px solid var(--line);padding-top:20px}
-  .hero .trust span{font-size:.9rem;color:var(--muted)}
-  .hero .trust b{font-family:var(--disp);font-weight:600;color:var(--lead)}
+  .hero h1{font-size:clamp(2.3rem,4.6vw,3.5rem);margin-top:22px;color:#fff;line-height:1.08}
+  .hero h1 em{font-style:italic;color:#9EBC81}
+  .hero .sub{font-size:1.08rem;color:#d8dcd4;max-width:36ch;margin-top:20px}
+  .hero .ostack{list-style:none;margin:22px 0 0;display:flex;flex-wrap:wrap;gap:10px 20px;padding:0}
+  .hero .ostack li{position:relative;padding-left:20px;font-size:14px;color:#d8dcd4;font-weight:500}
+  .hero .ostack li:before{content:"";position:absolute;left:0;top:.55em;width:8px;height:8px;background:#9EBC81}
+  .hero .trust{display:flex;flex-wrap:wrap;gap:10px 22px;margin-top:22px;border-top:1px solid rgba(255,255,255,.14);padding-top:18px}
+  .hero .trust span{font-size:.86rem;color:#b3b9ad}
+  .hero .trust b{font-family:var(--disp);font-weight:600;color:#e6e9e2}
 
   /* form card */
   .card{background:#fff;border:1px solid var(--line);padding:28px 26px 22px;box-shadow:0 20px 46px rgba(45,45,45,.10)}
@@ -195,7 +198,13 @@
     <div>
       <span class="ey">GTA Multiplex Advisory</span>
       <h1>Own a property where the tenants help carry the <em>mortgage.</em></h1>
-      <p class="sub">A single lot can hold three or four homes &mdash; up to six in parts of Toronto &mdash; plus a garden suite where permitted. PlexEdge finds the Ontario properties with that hidden density, proves it with real design and numbers, and brings you only the ones that pencil. An attainable path to live-in ownership or cash-flow investment, without stitching together a realtor, a planner and a builder yourself.</p>
+      <p class="sub">We find the Ontario lots with hidden density &mdash; three, four, up to six units &mdash; prove it with real design and numbers, and bring you only the ones that pencil.</p>
+      <ul class="ostack">
+        <li>Real lots &amp; real numbers, not a mailing list</li>
+        <li>Live-in or pure investment</li>
+        <li>We coordinate realtor, design &amp; build</li>
+        <li>Free &middot; no obligation</li>
+      </ul>
       <div class="trust">
         <span><b>Family multiplex operators</b> since 2000</span>
         <span><b>Build partner:</b> 15+ years, 200+ units</span>
