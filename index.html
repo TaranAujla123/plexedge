@@ -525,6 +525,37 @@
   .scard p{color:var(--muted);font-size:.98rem;line-height:1.55;margin-bottom:16px}
   .scard .slink{font-family:var(--disp);font-weight:600;font-size:.9rem;color:var(--sage)}
   .scard:hover .slink{color:var(--copper)}
+
+  /* ============ Phase 1: charcoal hero (homepage only) ============ */
+  header.hero{
+    background:
+      radial-gradient(120% 84% at 84% -8%, rgba(107,127,92,.22), transparent 56%),
+      linear-gradient(180deg,#24251f 0%, var(--lead) 52%, #26271f 100%);
+  }
+  .hero h1{color:var(--paper)}
+  .hero h1 em{color:var(--sage)}
+  .hero .sub{color:rgba(249,248,246,.74)}
+  .hero .btn.solid{background:var(--sage);color:#fff;border-color:var(--sage)}
+  .hero .btn.solid:hover{background:#7d9271;border-color:#7d9271}
+  .hero .btn.ghost{color:var(--paper);border-color:rgba(249,248,246,.42)}
+  .hero .btn.ghost:hover{background:var(--paper);color:var(--lead)}
+  .hero .pe-morph{box-shadow:0 26px 64px rgba(0,0,0,.38)}
+  /* brighten the hero grid lines against the charcoal */
+  header.hero.grid-bg::before{
+    background-image:
+      linear-gradient(to right,rgba(226,230,221,.06) 1px,transparent 1px),
+      linear-gradient(to bottom,rgba(226,230,221,.06) 1px,transparent 1px),
+      linear-gradient(to right,rgba(226,230,221,.10) 1px,transparent 1px),
+      linear-gradient(to bottom,rgba(226,230,221,.10) 1px,transparent 1px);
+  }
+  /* nav floats transparent over the dark hero at the top → go light; revert on scroll */
+  nav{transition:background .25s,border-color .25s,box-shadow .25s,color .2s}
+  nav:not(.scrolled):not(.menu-open) .nlinks a{color:var(--paper)}
+  nav:not(.scrolled):not(.menu-open) .nlinks a:hover{color:var(--sage)}
+  nav:not(.scrolled):not(.menu-open) .logo{color:var(--paper)}
+  nav:not(.scrolled):not(.menu-open) .logo .mark{border-color:rgba(249,248,246,.6)}
+  nav:not(.scrolled):not(.menu-open) .nav-toggle i{background:var(--paper)}
+  nav:not(.scrolled):not(.menu-open) .btn.solid{background:var(--sage);color:#fff}
 </style>
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="alternate icon" href="/favicon.ico">
