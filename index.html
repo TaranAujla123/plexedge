@@ -240,7 +240,7 @@
   .darkband .step .num{color:#b9cdaa}
   @media(max-width:540px){.darkband .step{border-bottom-color:rgba(255,255,255,.15)!important}}
   /* What-we-do on soft blueprint-green wash + grid */
-  #services{background:var(--wash)}
+  /* #services background handled by .sageband (Phase 2) */
 
   /* financing */
   .fin-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:8px}
@@ -326,7 +326,7 @@
   @media(max-width:540px){.bgrid{grid-template-columns:1fr}.bcard{border-right:0;border-bottom:1px solid var(--line)}.bcard:nth-child(n+3){border-bottom:1px solid var(--line)}.bcard:last-child{border-bottom:0}}
 
   /* ---------- idea / philosophy ---------- */
-  #idea{background:var(--wash);border-top:1px solid var(--line)}
+  #idea{border-top:1px solid var(--line)}
   #idea .prose{display:grid;grid-template-columns:repeat(3,1fr);gap:40px}
   #idea .beat .mono{color:var(--sage);display:block;margin-bottom:14px}
   #idea .beat p{font-size:.98rem}
@@ -544,6 +544,9 @@
   .hero .btn.ghost{color:var(--paper);border-color:rgba(249,248,246,.42)}
   .hero .btn.ghost:hover{background:var(--paper);color:var(--lead)}
   .hero .pe-morph{box-shadow:0 26px 64px rgba(0,0,0,.38)}
+  .hero-facts{border-color:rgba(249,248,246,.16)}
+  .hero-facts b{color:#9EBC81}
+  .hero-facts span{color:rgba(249,248,246,.72)}
   /* brighten the hero grid lines against the charcoal */
   header.hero.grid-bg::before{
     background-image:
@@ -563,6 +566,26 @@
   nav:not(.scrolled):not(.menu-open) .logo .e3 rect{fill:#9EBC81}
   nav:not(.scrolled):not(.menu-open) .nav-toggle i{background:var(--paper)}
   nav:not(.scrolled):not(.menu-open) .btn.solid{background:#9EBC81;color:var(--lead)}
+
+  /* ============ Phase 2: sage-green accent bands (What we do, Financing) ============ */
+  .sageband{background:#506A47;border-top:1px solid rgba(255,255,255,.10)}
+  .sageband .idx .mono{color:#d6e4c8}
+  .sageband h2{color:var(--paper)}
+  .sageband .kicker{color:rgba(249,248,246,.85)}
+  .sageband .shead .idx::after{background:rgba(255,255,255,.18)}
+  .sageband .shead h2::after,.sageband .feat .body h2::after{background:#c6d9b0}
+  .sageband .fin-close{color:var(--paper)}
+  .sageband .fin-close b{color:#fff}
+  .sageband .fin-dis{color:rgba(249,248,246,.62)}
+  .sageband .scrollcue a{color:rgba(249,248,246,.82)}
+  .sageband .scrollcue svg{stroke:rgba(249,248,246,.82)}
+  .sageband.grid-bg::before{
+    background-image:
+      linear-gradient(to right,rgba(255,255,255,.05) 1px,transparent 1px),
+      linear-gradient(to bottom,rgba(255,255,255,.05) 1px,transparent 1px),
+      linear-gradient(to right,rgba(255,255,255,.08) 1px,transparent 1px),
+      linear-gradient(to bottom,rgba(255,255,255,.08) 1px,transparent 1px);
+  }
 </style>
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="alternate icon" href="/favicon.ico">
@@ -749,7 +772,7 @@
   </div>
 </section>
 
-<section id="services" class="grid-bg">
+<section id="services" class="grid-bg sageband">
   <div class="wrap">
     <div class="shead">
       <div class="idx"><span class="mono">What We Do</span></div>
@@ -951,7 +974,7 @@
   </div>
 </section>
 
-<section id="financing">
+<section id="financing" class="sageband">
   <div class="wrap">
     <div class="shead">
       <div class="idx"><span class="mono">Financing</span></div>
